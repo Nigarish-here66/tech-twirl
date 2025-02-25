@@ -1,8 +1,8 @@
-import NavBar from './components/NavBar';
+import Sidebar from './components/SideBar';
 function App() {
   return (
     <div className="">
-     <NavBar/>
+     <Sidebar/>
     </div>
   );
 }

@@ -1,0 +1,84 @@
+:root {
+  --icon-size: 24px; /* Adjust icon size */
+  --text-size: 18px; /* Adjust text size */
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+  padding-top: 20px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar.closed {
+  width: 80px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color:  rgb(6, 138, 226);
+  font-size: var(--icon-size);
+  cursor: pointer;
+  padding: 10px;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: var(--text-size);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  color: #555; 
+}
+
+li svg {
+  font-size: var(--icon-size);
+}
+
+li:hover {
+  background: rgb(6, 138, 226);
+  color: white;
+}
+
+li span {
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.closed li span {
+  opacity: 0;
+}
+
+/* Hire Us Button */
+.hire-us {
+  margin: 20px;
+  padding: 10px;
+  margin-bottom: 60px;
+  text-align: center;
+  background:  rgb(6, 138, 226);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--text-size);
+  transition: background 0.3s ease;
+}
+
+.hire-us:hover {
+  background:  rgb(14, 122, 194);
+}
