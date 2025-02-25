@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./HeroSection.css"; // Ensure this contains hero section styles
+import "./HeroSection.css";
 
 const HeroSection = () => {
   const [currentText, setCurrentText] = useState("We Can Solve Your Business Needs");
@@ -29,8 +29,8 @@ const HeroSection = () => {
         setCurrentText(texts[randomIndex].heading);
         setCurrentSubText(texts[randomIndex].subText);
         setIsVisible(true); // Show text after changing
-      }, 500); // Delay to match CSS transition
-    }, 9000); // Change text every 9 seconds (same as background animation)
+      }, 500); 
+    }, 9000); 
 
     return () => clearInterval(interval);
   }, []);
