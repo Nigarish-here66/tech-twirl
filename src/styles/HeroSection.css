@@ -1,4 +1,4 @@
-/* Hero Section CSS */
+
 .hero-section {
   position: relative;
   width: 100%;
@@ -9,7 +9,7 @@
   text-align: left;
   color: white;
   overflow: hidden;
-  padding-left: 0; /* Remove padding from the whole section */
+  padding-left: 0; 
 }
 
 .hero-slider {
@@ -25,7 +25,7 @@
   position: relative;
   z-index: 2;
   max-width: 600px;
-  margin-left: 100px; /* Move only the text */
+  margin-left: 100px; 
 }
 
 .hero-content h1 {
