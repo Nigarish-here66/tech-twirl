@@ -1,42 +1,57 @@
-.container {
+:root {
+    --card-bg: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-border-radius: 12px;
+    --text-color: #333;
+}
+
+.projectContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 2rem;
     background-color: #f8f8f8;
 }
 
-.card {
-    background: #fff;
+.projectCard {
+    background: var(--card-bg);
     padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 4px 8px var(--card-shadow);
     text-align: center;
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 600px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.images {
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px var(--card-shadow);
+}
+
+.projectImages {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-bottom: 15px;
 }
 
-.phone {
+.projectImage {
     width: 80px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.title {
-    font-size: 22px;
+.projectTitle {
+    font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
+    margin: 10px 0;
 }
 
-.subtitle {
-    font-size: 16px;
+.projectSubtitle {
+    font-size: 18px;
     color: #666;
+    margin-bottom: 15px;
 }

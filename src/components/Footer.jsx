@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Css/Footer.module.css"; // Import the CSS module
+import styles from "../Css/Footer.module.css";
 
 function Footer() {
   return (
@@ -7,8 +7,8 @@ function Footer() {
       {/* Left Section */}
       <div className={`${styles.footerSection} ${styles.footerLeft}`}>
         <img
-          src="/path/to/your/logo.png"
-          alt="XYTEX Technologies"
+          src="../assets/logo.png"
+          alt="TechTwril"
           className={styles.footerLogo}
         />
         <p className={styles.footerDescription}>
@@ -66,15 +66,6 @@ function Footer() {
           <a href="https://github.com" target="_blank" rel="noreferrer">
             <i className="fab fa-github" />
           </a>
-        </div>
-
-        <div className={styles.registrationInfo}>
-          <h4>Registered By PSEB</h4>
-          <img
-            src="/path/to/pseb-logo.png"
-            alt="PSEB Logo"
-            className={styles.psebLogo}
-          />
         </div>
       </div>
     </footer>
