@@ -1,0 +1,81 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    /* Ensures responsiveness on smaller screens */
+    padding: 2rem;
+    background-color: #f5f5f5;
+    /* Example background color */
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.footerSection {
+    flex: 1;
+    /* Each section can expand equally */
+    margin: 1rem;
+    /* Spacing between sections */
+    min-width: 200px;
+    /* Ensures a decent width on smaller screens */
+}
+
+.footerLeft,
+.footerMiddle,
+.footerRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLogo {
+    max-width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footerDescription {
+    margin-bottom: 1rem;
+}
+
+.footerRating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.ratingValue {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.footerContact p {
+    margin: 0.2rem 0;
+}
+
+.addressBlock {
+    margin-bottom: 1rem;
+}
+
+.addressBlock h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.socialLinks a {
+    margin-right: 0.5rem;
+    color: #333;
+    /* Default icon color */
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.socialLinks a:hover {
+    color: #0077b5;
+    /* Change color on hover */
+}
+
+.registrationInfo {
+    margin-top: 1rem;
+}
+
+.psebLogo {
+    max-width: 120px;
+    margin-top: 0.5rem;
+}
