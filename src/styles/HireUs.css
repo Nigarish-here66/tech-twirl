@@ -1,0 +1,113 @@
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 28rem; /* 96 in Tailwind (w-96) */
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .side-panel.hidden {
+    transform: translateX(100%);
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #4a4a4a;
+    cursor: pointer;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .input-field,
+  .select-field,
+  .textarea-field {
+    width: 100%;
+    height: 5%;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: none;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .textarea-field {
+    width: 100%;
+    height: 9%;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: none;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    font-size: 17px;
+  }
+  
+  .send-button {
+    width: 50%;
+    height: 5%;
+    background-color: #2563eb; 
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .send-button:hover {
+    background-color: #154ba1;
+  }
+  
+  .contact-info p {
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.25rem;
+  }
+  
+  .email-info {
+    font-weight: bold;
+    color: #2563eb;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    size: 2rem;
+  }
+  
+  .social-icons svg {
+    color: #4a4a4a;
+    cursor: pointer;
+  }
+  
+  .social-icons svg:hover {
+    color: #2563eb;
+
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .description {
+    font-size: 17px;
+    margin-top: 0.5rem;
+    color: #525252;
+  }
