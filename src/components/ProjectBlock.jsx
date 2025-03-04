@@ -1,13 +1,12 @@
 import React from "react";
-import styles from "../Css/ProjectBlock.module.css";
+import "../styles/ProjectBlock.css";
 
-const ProjectBlock = ({ heading, text }) => {
+const ProjectBlock = ({ heading, text, image }) => {
   return (
-    <div className={styles.projectContainer}>
-      <div className={styles.projectCard}>
-        <h2 className={styles.projectTitle}>{heading}</h2>
-        <p className={styles.projectSubtitle}>{text}</p>
-      </div>
+    <div className="projectCard">
+      {image && <img src={image} alt={heading} className="projectImage" />}
+      <h2 className="projectTitle">{heading}</h2>
+      <p className="projectSubtitle">{text}</p>
     </div>
   );
 };

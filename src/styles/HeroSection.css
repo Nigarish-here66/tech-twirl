@@ -1,64 +1,102 @@
+:root {
+  --primary-color: #1a73e8;
+}
 
-.hero-section {
+.hero {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 400px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
   text-align: left;
   color: white;
   overflow: hidden;
-  padding-left: 0; 
+  padding-left: 100px;
+  background: linear-gradient(rgba(12, 12, 12, 0), rgba(5, 0, 0, 0.5)),
+    url('D: \University\Semester 6\Advance Computer Programming\Project\tech-twirl\src\components\HeroSection.jsx') no-repeat center center/cover;
 }
 
-.hero-slider {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  animation: slideBackground 9s infinite;
-}
-
-.hero-content {
+.heroOverlay {
   position: relative;
   z-index: 2;
-  max-width: 600px;
-  margin-left: 100px; 
 }
 
-.hero-content h1 {
+.heroTitle {
   font-size: 2.5rem;
   font-weight: bold;
-  transition: opacity 0.5s ease-in-out;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s;
 }
 
-.hero-content p {
+.heroNav {
   margin-top: 10px;
-  font-size: 1rem;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
 }
 
-.hero-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: blue;
+.heroLink {
   color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.heroLink:hover {
+  color: var(--primary-color);
+}
+
+.separator {
+  margin-right: 10px;
+}
+
+.heroButton {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--primary-color);
   border: none;
-  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1.5s;
 }
 
-.hero-button:hover {
-  background: darkblue;
+.heroButton:hover {
+  background-color: #1662c4;
+  transform: translateY(-2px);
 }
 
-@keyframes slideBackground {
-  0% { background-image: url('https://www.czonepk.com/assets/images/Sliderex.png'); }
-  33% { background-image: url('https://www.czonepk.com/assets/images/Slideri.png'); }
-  66% { background-image: url('https://img.freepik.com/free-vector/abstract-digital-science-fiction-matrix-like-background_587448-971.jpg'); }
-  100% { background-image: url('https://www.czonepk.com/assets/images/Sliderex.png'); }
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
+@media (max-width: 768px) {
+  .hero {
+    height: 400px;
+    padding-left: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroNav {
+    justify-content: center;
+  }
+
+  .heroButton {
+    font-size: 0.9rem;
+  }
+}

@@ -1,16 +1,17 @@
 import React from "react";
-import styles from "../Css/HeroSection.module.css";
+import "../styles/HeroSection.css";
 
 const HeroSection = () => {
   return (
-    <header className={styles.hero}>
-      <div className={styles.heroOverlay}>
-        <h1 className={styles.heroTitle}>Software House Portfolio</h1>
-        <nav className={styles.heroNav}>
-          <a href="/" className={styles.heroLink}>Home</a>
-          <span className={styles.separator}>•</span>
-          <a href="/projects" className={styles.heroLink}>Projects</a>
+    <header className="hero">
+      <div className="heroOverlay">
+        <h1 className="heroTitle">Software House Portfolio</h1>
+        <nav className="heroNav">
+          <a href="/" className="heroLink">Home</a>
+          <span className="separator">•</span>
+          <a href="/projects" className="heroLink">Projects</a>
         </nav>
+        <button className="heroButton">Explore Projects</button>
       </div>
     </header>
   );

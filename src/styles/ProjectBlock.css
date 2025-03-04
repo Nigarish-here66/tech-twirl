@@ -5,11 +5,11 @@
     --text-color: #333;
 }
 
-.projectContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 80px;
+    padding: 6rem;
     background-color: #f8f8f8;
 }
 
@@ -20,7 +20,7 @@
     box-shadow: 0 4px 8px var(--card-shadow);
     text-align: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 300px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -29,29 +29,22 @@
     box-shadow: 0 6px 12px var(--card-shadow);
 }
 
-.projectImages {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.projectImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
     margin-bottom: 15px;
 }
 
-.projectImage {
-    width: 80px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
 .projectTitle {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--text-color);
     margin: 10px 0;
 }
 
 .projectSubtitle {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
-    margin-bottom: 15px;
 }

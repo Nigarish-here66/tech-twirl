@@ -1,10 +1,10 @@
-import React from 'react';
-import styles from "../Css/Header.module.css";
+import React from "react";
+import "../styles/Header.css";
 
 const Header = () => {
   return (
-    <header className={styles.topHeader}>
-      <img src="../assets/logo.png" alt="TechTwril" className={styles.logo} />
+    <header className="topHeader">
+      <img src="../assets/logo.png" alt="TechTwril" className="logo" />
     </header>
   );
 };
