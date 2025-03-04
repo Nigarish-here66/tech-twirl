@@ -5,42 +5,47 @@ import ProjectBlock from "../components/ProjectBlock";
 import Footer from "../components/Footer";
 import "../styles/ProjectBlock.css"; 
 
+
+
+import Project1 from "../assets/Project1.png";
+import Project2 from "../assets/Project2.png";
+import Project3 from "../assets/Project3.png";
 const portfolioProjects = [
   { 
     id: 1, 
     heading: "Project One", 
     text: "A brief description of Project One.", 
-    image: "../assets/Project1.png" 
+    image: [Project1],
   },
   { 
     id: 2, 
     heading: "Project Two", 
     text: "A brief description of Project Two.", 
-    image: "../assets/Project1.png" 
+    image:  [Project1],
   },
   { 
     id: 3, 
     heading: "Project Three", 
     text: "A brief description of Project Three.", 
-    image: "../assets/Project1.png" 
+    image:  [Project1],
   },
   { 
     id: 4, 
     heading: "Project Four", 
     text: "A brief description of Project Four.", 
-    image: "../assets/Project1.png" 
+    image: [Project1],
   },
   { 
     id: 5, 
     heading: "Project Five", 
     text: "A brief description of Project Five.", 
-    image: "../assets/Project1.png" 
+    image:  [Project1],
   },
   { 
     id: 6, 
     heading: "Project Six", 
     text: "A brief description of Project Six.", 
-    image: "../assets/Project1.png" 
+    image:  [Project1],
   },
  
 ];
