@@ -42,6 +42,64 @@ const projects = [
     color: "#00CCFF",
     imageUrl: "https://bs-uploads.toptal.io/blackfish-uploads/uploaded_file/file/39332/image-1566402184774-80ed60aba9fd255bac32ecc38c477780.jpg"
   },
+
+  {
+    "id": 4,
+    "title": "E-Commerce Platform with AI Recommendations",
+    "description": "A web-based e-commerce platform offering personalized product recommendations using AI algorithms.",
+    "category": "web",
+    "technologies": ["Angular", "Node.js", "MongoDB", "TensorFlow.js"],
+    "demoLink": "#",
+    "sourceLink": "#",
+    "color": "#FF5733",
+    "imageUrl": "https://www.queppelin.com/wp-content/uploads/2021/08/ai-recommendation-system.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Mobile Health Monitoring App",
+    "description": "A mobile application that tracks user health metrics and provides real-time feedback.",
+    "category": "mobile",
+    "technologies": ["Swift", "HealthKit", "CoreData", "Firebase"],
+    "demoLink": "#",
+    "sourceLink": "#",
+    "color": "#28A745",
+    "imageUrl": "https://www.shutterstock.com/image-vector/medicine-smartphone-interface-vector-templates-260nw-1545547160.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Enterprise Resource Planning System",
+    "description": "An integrated enterprise application for managing company resources and operations.",
+    "category": "enterprise",
+    "technologies": ["Java", "Spring Boot", "PostgreSQL", "RabbitMQ"],
+    "demoLink": "#",
+    "sourceLink": "#",
+    "color": "#007BFF",
+    "imageUrl": "https://t3.ftcdn.net/jpg/02/19/92/40/360_F_219924013_YH64nzKBC00zq2TI75uXS3riW5yPXHPw.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Mobile Payment Solution",
+    "description": "A secure mobile application facilitating seamless peer-to-peer payments.",
+    "category": "mobile",
+    "technologies": ["Kotlin", "Firebase", "Stripe API", "Realm"],
+    "demoLink": "#",
+    "sourceLink": "#",
+    "color": "#FFC107",
+    "imageUrl": "https://images.ctfassets.net/iwafom9nwg8j/2KnAio2P2jzUN4Cp0DJSrO/b938e7b7cfc02ddeb59118d20bc07361/Best_Mobile_Payment_Solutions_For_Online_Business__1__2_.webp"
+  },
+  {
+    "id": 8,
+    "title": "Web-Based Project Management Tool",
+    "description": "A collaborative web application for project planning and team communication.",
+    "category": "web",
+    "technologies": ["React", "Node.js", "GraphQL", "MySQL"],
+    "demoLink": "#",
+    "sourceLink": "#",
+    "color": "#6F42C1",
+    "imageUrl": "https://cdn.wedevs.com/uploads/2021/04/Best-project-management-software-for-web-designers.png"
+  }
+  
+  
  
 ];
 
