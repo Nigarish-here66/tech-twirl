@@ -1,6 +1,14 @@
 import React from "react";
 import "../styles/Footer.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faFacebookF, 
+  faInstagram, 
+  faLinkedinIn, 
+  faGithub 
+} from "@fortawesome/free-brands-svg-icons";
+
 function Footer() {
   return (
     <footer className="footer">
@@ -66,7 +74,7 @@ function Footer() {
             rel="noreferrer"
             aria-label="Facebook"
           >
-            <i className="fab fa-facebook-f" />
+            <FontAwesomeIcon icon={faFacebookF} />
           </a>
           <a
             href="https://instagram.com"
@@ -74,7 +82,7 @@ function Footer() {
             rel="noreferrer"
             aria-label="Instagram"
           >
-            <i className="fab fa-instagram" />
+            <FontAwesomeIcon icon={faInstagram} />
           </a>
           <a
             href="https://linkedin.com"
@@ -82,7 +90,7 @@ function Footer() {
             rel="noreferrer"
             aria-label="LinkedIn"
           >
-            <i className="fab fa-linkedin-in" />
+            <FontAwesomeIcon icon={faLinkedinIn} />
           </a>
           <a
             href="https://github.com"
@@ -90,8 +98,12 @@ function Footer() {
             rel="noreferrer"
             aria-label="GitHub"
           >
-            <i className="fab fa-github" />
+            <FontAwesomeIcon icon={faGithub} />
           </a>
+        </div>
+        
+        <div className="registrationInfo">
+          <p>© {new Date().getFullYear()} TechTwril. All rights reserved.</p>
         </div>
       </div>
     </footer>
