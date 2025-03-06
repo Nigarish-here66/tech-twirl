@@ -13,6 +13,7 @@
 .footer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: var(--footer-padding);
     background: var(--footer-bg-gradient);
     color: var(--text-color);
@@ -23,8 +24,9 @@
 }
 
 .footerSection {
-    flex: 1 1 200px;
-    margin: 1rem;
+    flex: 1 1 300px;
+    margin: 0.5rem;
+    min-width: 250px;
 }
 
 .footerLeft,
@@ -81,6 +83,7 @@
 .socialLinks {
     display: flex;
     gap: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .socialLinks a {
@@ -108,17 +111,52 @@
 .psebLogo {
     max-width: 120px;
     margin-top: 0.5rem;
- 
+}
+
+@media (max-width: 992px) {
+    .footer {
+        justify-content: space-around;
+    }
+    
+    .footerSection {
+        flex: 1 1 300px;
+    }
 }
 
 @media (max-width: 768px) {
     .footer {
         flex-direction: column;
-        align-items: center;
+    }
+    
+    .footerSection {
+        width: 100%;
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+    
+    .footerLeft, 
+    .footerMiddle, 
+    .footerRight {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+    
+    .footerSection {
         text-align: center;
     }
-
-    .footerSection {
-        margin: 1rem 0;
+    
+    .footerLeft, 
+    .footerMiddle, 
+    .footerRight {
+        align-items: center;
+    }
+    
+    .socialLinks {
+        justify-content: center;
     }
 }
