@@ -1,0 +1,162 @@
+/* OurServices.css */
+.services-section {
+  background: url('https://static.flyaps.com/static/img/new_home/main/circles.e5bcc017a35f.svg') no-repeat center center;
+  background-size: cover;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.services-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.animated-underline {
+  height: 4px;
+  width: 6rem;
+  background-color: #3b82f6;
+  margin: 0 auto;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.underline-dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -3px;
+  left: 0;
+  animation: moveDot 2s infinite linear;
+}
+
+@keyframes moveDot {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+/* Grid layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  padding: 0 3rem;
+  justify-content: center;
+}
+
+/* Card styling */
+.service-card {
+  width: 100%;
+  max-width: 360px;
+  height: 250px;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect */
+.service-card:hover {
+  background-color: #3b82f6;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state */
+.service-card.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* Icon container (Custom shape with rounded corners) */
+.service-icon-wrapper {
+  width: 100px;
+  height: 80px;
+  background: #3b82f6;
+  border: 3px solid #3b82f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px 40px 40px 0px; /* Custom shape */
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  padding: 15px;
+  position: relative;
+}
+
+/* Icon */
+.service-icon {
+  font-size: 2rem;
+  color: #3b82f6;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.service-card:hover .service-icon-wrapper {
+  background-color: white;
+  border-color: white;
+}
+
+.service-card:hover .service-icon {
+  color: #3b82f6;
+}
+
+/* Title */
+.service-title-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Description */
+.service-description {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #555;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  color: white;
+}
+
+/* Read more link */
+.read-more {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+  }
+}
