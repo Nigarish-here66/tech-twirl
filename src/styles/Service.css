@@ -1,0 +1,162 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px 0;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+.service-description {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 96px 0;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #e2e8f0;
+  margin-bottom: 32px;
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #3182ce;
+  padding: 64px 0;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.cta-description {
+  font-size: 20px;
+  color: #bee3f8;
+  margin-bottom: 32px;
+}
+
+.cta-button {
+  background: white;
+  color: #3182ce;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.cta-button:hover {
+  background: #f7fafc;
+}
+
+/* Footer */
+.footer {
+  background-color: #1a202c;
+  color: #a0aec0;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
