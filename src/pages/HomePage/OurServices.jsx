@@ -1,42 +1,37 @@
-import React, { useState } from "react";
-import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaDatabase, FaApple, FaAndroid } from "react-icons/fa";
-import "../styles/OurServices.css"
+import React from "react";
+import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaChartBar, FaApple, FaAndroid } from "react-icons/fa";
+import "../styles/OurServices.css";
 
-const servicesData = [
-  { id: 1, icon: <FaLaptopCode />, title: "Web Development", description: "We create and develop sites with high conversion, which are easy to bring to the TOP. We fully manage the project or help the team on the client-side." },
-  { id: 2, icon: <FaMobileAlt />, title: "Mobile App", description: "We conduct competitive market analysis, use the best solutions to create Mobile Apps. We implement business tasks using user-friendly interfaces based on analytics." },
-  { id: 3, icon: <FaBullhorn />, title: "Digital Marketing", description: "We help you increase the sales of your product or service through a digital strategy of search engine positioning and other channels so that you obtain the best results." },
-  { id: 4, icon: <FaDatabase />, title: "ERP Software Development", description: "Enterprise resource and our team of IT specialists have extensive practical experience in creating first-class solutions for integrating enterprise business process management systems." },
-  { id: 5, icon: <FaApple />, title: "iOS App Development", description: "Creation of applications for iOS. The difficulty of developing applications for iOS is that Apple dictates its own rules in design and functionality." },
-  { id: 6, icon: <FaAndroid />, title: "iOS / Android App Development", description: "Find out how we develop apps for Android, a platform that has already become a market leader. We will tell you what stages the development of Android applications goes through." },
+const services = [
+  { title: "Web Development", description: "We create and develop sites with high conversion, which are easy to bring to the TOP.", icon: <FaLaptopCode /> },
+  { title: "Mobile App", description: "We conduct competitive market analysis and implement user-friendly mobile applications.", icon: <FaMobileAlt /> },
+  { title: "Digital Marketing", description: "Increase sales through search engine positioning and other digital channels.", icon: <FaBullhorn /> },
+  { title: "ERP Software Development", description: "Integrate enterprise business process management systems with our expertise.", icon: <FaChartBar /> },
+  { title: "iOS App Development", description: "Develop high-quality iOS applications following Apple's guidelines.", icon: <FaApple /> },
+  { title: "Android App Development", description: "Create powerful Android applications tailored for the market leader platform.", icon: <FaAndroid /> },
 ];
 
-const OurServices = () => {
-  const [activeId, setActiveId] = useState(null);
-
+const Services = () => {
   return (
-    <section className="services-section">
-      <h2 className="services-title">Our Services</h2>
-      <div className="animated-underline">
-        <div className="underline-dot"></div>
+    <div className="services-section">
+      <div className="services-title-container">
+        <h2 className="services-title">Our Services</h2>
+        <div className="services-animated-underline">
+          <div className="services-underline-dot"></div>
+        </div>
       </div>
-      
       <div className="services-grid">
-        {servicesData.map((service) => (
-          <div
-            key={service.id}
-            className={`service-card ${activeId === service.id ? "active" : ""}`}
-            onClick={() => setActiveId(service.id)}
-          >
-            <div className="service-icon">{service.icon}</div>
-            <h3 className="service-title-text">{service.title}</h3>
-            <p className="service-description">{service.description}</p>
-            <span className="read-more">Read More</span>
+        {services.map((service, index) => (
+          <div className="service-card" key={index}>
+            <div className="icon">{service.icon}</div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <a href="#" className="read-more">Read More</a>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default OurServices;
+export default Services;
