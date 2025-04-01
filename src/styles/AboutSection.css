@@ -1,1 +1,115 @@
 
+.about-section {
+    padding: 80px 100px;
+    background: #fff;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.about-image { 
+    width: 350px;  
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://img.freepik.com/premium-vector/grid-vector-seamless-background-similar-paper-texture-geometric-simple-pattern-blue-light-design_547648-2705.jpg?w=360') no-repeat center center; 
+    background-size: cover;
+    border-radius: 30px;
+    padding: 20px;
+    position: relative;
+}
+
+.image-container {
+    width: 250px;  
+    height: 250px;
+    background: linear-gradient(145deg, #090101, #0a0303); /* Smooth depth effect */
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3), 
+                -10px -10px 25px rgba(13, 5, 5, 0.7), 
+                inset 5px 5px 10px rgba(0, 0, 0, 0.1), 
+                inset -5px -5px 10px rgba(22, 9, 9, 0.5); /* Inner + Outer shadow for 3D look */
+    transform: rotate(45deg); /* Tilt the whole container */
+    position: relative;
+}
+
+.about-image img {
+    width: 70%;  /* Adjust size */
+    height: auto;
+    border-radius: 20px;
+    filter: drop-shadow(8px 8px 15px rgba(0, 0, 0, 0.2)); /* More shadow depth */
+}
+
+
+
+.about-content {
+    max-width: 600px;
+    position: relative;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 8px; /* Small bottom margin */
+    padding-left: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.animated-underline {
+    height: 4px;
+    width: 6rem;
+    background-color: #3b82f6;
+    margin: 0 auto;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .underline-dot {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    animation: moveDot 2s infinite linear;
+  }
+  
+  @keyframes moveDot {
+    0% { left: 0; }
+    100% { left: 100%; }
+  }
+  
+.about-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 6px; /* Reduced bottom margin */
+}
+
+.about-content strong {
+    color: #004aad;
+}
+.heading-container {
+    display: inline-block;
+    position: relative;
+}
+
+.animated-underline {
+    height: 4px;
+    width: 6rem;
+    background-color: #3b82f6;
+    border-radius: 9999px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+}
