@@ -1,0 +1,173 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #3498db;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+
+header {
+  background-color: #1a202c;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+  font-size: 1rem;
+  color: white;
+  margin-top: 10px;
+  display: block;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #3498db;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Contact Form & Image Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-form {
+    flex: 1;
+    max-width: 40%; /* Reduced width of contact form */
+  }
+
+  .contact-image {
+    flex: 1;
+    max-width: 50%;
+  }
+}
+
+/* Contact Form */
+.contact-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px; /* Maximum width for form */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px; /* Reduced padding for compact look */
+  margin: 8px 0; /* Adjusted margin */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 12px; /* Reduced font size */
+}
+
+/* Textarea Specific */
+.contact-form textarea {
+  resize: vertical; /* Allow resizing vertically only */
+  height: 100px; /* Adjusted height for better proportion */
+}
+
+.contact-form button {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.contact-form button:hover {
+  background-color: #2980b9;
+}
+
+/* Image Styling */
+.contact-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Map Section */
+.map-container {
+  width: 100%;
+  height: 450px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(30%) brightness(90%);
+}
+
+
