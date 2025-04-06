@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Code2,
-  Database,
-  Globe2,
-  Laptop2,
-  LayoutGrid,
-  MessageSquare,
-  MonitorSmartphone,
-  Settings2,
-} from "lucide-react";
-import "../App.css";
+import {Code2,Database,Globe2,MessageSquare,MonitorSmartphone,Settings2} from "lucide-react";
 
 const services = [
   {
@@ -52,7 +42,7 @@ const services = [
   },
 ];
 
-function Services() {
+function OurServices() {
   return (
     <div className="app">
       {/* Hero Section */}
@@ -99,4 +89,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default OurServices;
