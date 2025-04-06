@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaCheckCircle, FaSmile, FaCogs, FaTrophy } from "react-icons/fa";
-import '../styles/Stats.css';
+import '../styles/';
 
 const statsData = [
   { icon: <FaCheckCircle />, number: 107, text: "Completed Projects" },

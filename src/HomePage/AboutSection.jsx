@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/AboutSection.css";
-import logoImage from "../assests/logo.png"; 
+import logoImage from "../assets/logo.png"; 
 
 const AboutSection = () => {
   return (

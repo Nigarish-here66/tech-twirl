@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Card1.css";
-import serviceImage from "../assests/mobile-app.png";
+import serviceImage from "../assets/mobile-app.png";
 
 const Card1 = () => {
   return (
