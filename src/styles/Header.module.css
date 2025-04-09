@@ -1,129 +1,138 @@
-
-
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 102, 255, 0.1);
-  }
-  
-  .scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 5px 20px rgba(0, 102, 255, 0.15);
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease-in-out, padding 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  box-shadow: none;
+  color: white;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 5px 20px rgba(0, 102, 255, 0.15);
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding 0.3s ease;
+}
+
+.scrolled .headerContainer {
+  padding: 0.75rem 2rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 5rem;
+  transition: height 0.3s ease;
+}
+
+.shrinkLogo {
+  height: 3.5rem !important;
+}
+
+.scrolled .logo img {
+  height: 3.5rem;
+}
+
+.navigation {
+  display: flex;
+}
+
+.navList {
+  display: flex;
+  list-style-type: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+  color: white;
+}
+
+.scrolled .navLink {
+  color: #333;
+}
+
+.navLink:hover {
+  color: #0066FF;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  display: flex;
+}
+
+.hireUsButton {
+  background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.2);
+}
+
+.hireUsButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+}
+
+@media (max-width: 768px) {
   .headerContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 1rem;
   }
-  
-  .logoContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-  }
-  
-  .logo img {
-    height: 2.5rem;
-  }
-  
-  .logo span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #0066FF;
-    letter-spacing: 0.05em;
-  }
-  
-  .navigation {
-    display: flex;
-  }
-  
+
   .navList {
-    display: flex;
-    list-style-type: none;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
+    display: none; 
   }
-  
-  .navItem {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navLink {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0.5rem 0;
-  }
-  
-  .navLink:hover {
-    color: #0066FF;
-  }
-  
-  .navLink::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
-    transition: width 0.3s ease;
-  }
-  
-  .navLink:hover::after {
-    width: 100%;
-  }
-  
-  .ctaButton {
-    display: flex;
-  }
-  
-  .hireUsButton {
-    background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.2);
-  }
-  
-  .hireUsButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
-  }
-  
-  
-  @media (max-width: 768px) {
-    .headerContainer {
-      padding: 1rem;
-    }
-    
-    .navList {
-      display: none; 
-    }
-  }
+}
