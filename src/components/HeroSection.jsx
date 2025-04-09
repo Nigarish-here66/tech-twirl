@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from '../styles/HeroSection.module.css'; 
+import img from '../assets/hero.png';
 
 const HeroSection = () => {
   const heroVariants = {
@@ -22,12 +23,14 @@ const HeroSection = () => {
       animate="visible"
       variants={heroVariants}
     >
-      <div className={styles['hero-slider']}></div> {/* Fix: Add background image slider */}
-      <div className={styles['hero-content']}> {/* Fix: Match CSS class name exactly */}
+      {/* Background Image as <img> */}
+      <img src={img} alt="Background" className={styles.heroBackground} />
+
+      <div className={styles.heroContent}> 
         <h1 className="fade-in">Software House Portfolio</h1>
         <p className="fade-in">Crafting innovative digital solutions for modern businesses</p>
         <motion.button 
-          className={styles['hero-button']}
+          className={styles.heroButton}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
