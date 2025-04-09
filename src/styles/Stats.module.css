@@ -1,0 +1,70 @@
+.stats-section {
+  text-align: center;
+  background-color: #f0f0ff;
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+}
+
+.highlight {
+  color: #579ee2;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 230px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+.stat-box:hover {
+  background: #00b0ee;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Text & Icon Color Change on Hover */
+.stat-box:hover h3,
+.stat-box:hover p {
+  color: white;
+}
+
+/* Icon Style */
+.stat-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #579ee2;
+  background: #e2edfd;
+  border-radius: 50%;
+  padding: 15px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.stat-box:hover .stat-icon {
+  background: white;
+  color: #579ee2;
+}
