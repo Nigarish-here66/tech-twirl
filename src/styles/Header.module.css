@@ -87,7 +87,8 @@
 }
 
 .navLink:hover {
-  color: #0066FF;
+  color: #133b76;
+  font-weight: bold;
 }
 
 .navLink::after {
@@ -110,7 +111,7 @@
 }
 
 .hireUsButton {
-  background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+  background: linear-gradient(135deg, #28569a 0%, #00CCFF 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -124,7 +125,7 @@
 
 .hireUsButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(2, 16, 36, 0.736);
 }
 
 @media (max-width: 768px) {
