@@ -15,7 +15,6 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
-  
   position: relative;
   display: inline-block;
 }
@@ -26,7 +25,7 @@
   width: 6rem;
   background-color: #3b82f6;
   border-radius: 9999px;
-  margin: 2px auto 15px; /* Increased bottom margin */
+  margin: 2px auto 15px;
   position: relative;
   overflow: hidden;
 }
@@ -62,17 +61,12 @@
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-
-/* Hover Effects */
 .service-card:hover {
-  background-color: #00B0EE;
-  color: white;
+  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient on hover */
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service-card:hover h3,
@@ -122,4 +116,84 @@
 
 .read-more:hover {
   text-decoration: underline;
+}
+
+/* Service Container Styling */
+.service-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  gap: 40px;
+  align-items: center;
+}
+
+.service-content {
+  flex: 1;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #F5F9FD;
+  border: 1px solid #E5E7EB;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.service-content:hover {
+  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient on hover */
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+  transform: translateY(-5px);
+}
+
+.service-text {
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+  transition: color 0.3s;
+}
+
+.service-content:hover .service-text {
+  color: transparent; /* Hide the regular text color */
+  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient text color */
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  background-clip: text; /* Ensures the text is clipped to the gradient */
+}
+
+.image-caption {
+  font-style: italic;
+  color: #666;
+  text-align: right;
+  margin-top: 20px;
+  transition: color 0.3s;
+}
+
+.service-content:hover .image-caption {
+  color: #E5E7EB;
+}
+
+.service-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.service-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .service-image {
+    max-width: 80%;
+  }
 }
