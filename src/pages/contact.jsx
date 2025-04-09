@@ -9,6 +9,7 @@ function Contact() {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
@@ -17,17 +18,35 @@ function Contact() {
       ...prev,
       [name]: value,
     }));
+
+   
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    setSubmitted(true);
+    let formErrors = {};
 
-    setTimeout(() => {
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+    if (!formData.name.trim()) formErrors.name = "Please enter your name";
+    if (!formData.email.trim()) formErrors.email = "Please enter your email";
+    if (!formData.subject.trim())
+      formErrors.subject = "Please enter your subject";
+    if (!formData.message.trim()) formErrors.message = "Write your message";
+
+    setErrors(formErrors);
+
+    if (Object.keys(formErrors).length === 0) {
+      console.log("Submitted Data:", formData);
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setSubmitted(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -81,6 +100,8 @@ function Contact() {
               value={formData.name}
               onChange={handleChange}
             />
+            {errors.name && <span style={{ color: "red" }}>{errors.name}</span>}
+
             <input
               type="email"
               name="email"
@@ -88,6 +109,10 @@ function Contact() {
               value={formData.email}
               onChange={handleChange}
             />
+            {errors.email && (
+              <span style={{ color: "red" }}>{errors.email}</span>
+            )}
+
             <input
               type="text"
               name="subject"
@@ -95,6 +120,10 @@ function Contact() {
               value={formData.subject}
               onChange={handleChange}
             />
+            {errors.subject && (
+              <span style={{ color: "red" }}>{errors.subject}</span>
+            )}
+
             <textarea
               name="message"
               rows="4"
@@ -102,6 +131,10 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
             />
+            {errors.message && (
+              <span style={{ color: "red" }}>{errors.message}</span>
+            )}
+
             <button type="submit" disabled={submitted}>
               {submitted ? "Message Sent!" : "Send Message"}
             </button>
