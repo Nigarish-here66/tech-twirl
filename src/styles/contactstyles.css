@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,14 +6,14 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Container */
+
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-/* Links */
+
 a {
   text-decoration: none;
   color: inherit;
@@ -29,7 +29,7 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-/* Header */
+
 header {
   background-color: #1a202c;
   color: white;
@@ -40,6 +40,7 @@ header {
 /* Hero Section */
 .hero-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 50vh;
@@ -57,9 +58,12 @@ header {
   margin-bottom: 10px;
 }
 
+/* Breadcrumb Styling */
 .breadcrumb {
   font-size: 1rem;
   color: white;
+  margin-top: 10px;
+  display: block;
 }
 
 .breadcrumb a {
@@ -74,19 +78,34 @@ header {
 /* Contact Section */
 .contact-section {
   background-color: #ffffff;
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
-.contact-section h2 {
-  font-size: 2.5rem;
-  color: #b85f5f;
-  margin-bottom: 10px;
+/* Contact Form & Image Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
-.contact-section p {
-  color: #666;
-  margin-bottom: 30px;
+@media (min-width: 768px) {
+  .contact-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-form {
+    flex: 1;
+    max-width: 40%; /* Reduced width of contact form */
+  }
+
+  .contact-image {
+    flex: 1;
+    max-width: 50%;
+  }
 }
 
 /* Contact Form */
@@ -95,18 +114,24 @@ header {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: auto;
+  width: 100%;
+  max-width: 550px; /* Maximum width for form */
 }
 
 .contact-form input,
 .contact-form textarea {
-  width: 97%;
-  padding: 6px;
-  margin: 15px 0;
+  width: 100%;
+  padding: 8px; /* Reduced padding for compact look */
+  margin: 8px 0; /* Adjusted margin */
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 12px; /* Reduced font size */
+}
+
+/* Textarea Specific */
+.contact-form textarea {
+  resize: vertical; /* Allow resizing vertically only */
+  height: 100px; /* Adjusted height for better proportion */
 }
 
 .contact-form button {
@@ -121,6 +146,13 @@ header {
 
 .contact-form button:hover {
   background-color: #2980b9;
+}
+
+/* Image Styling */
+.contact-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* Map Section */
@@ -138,11 +170,4 @@ header {
   filter: grayscale(30%) brightness(90%);
 }
 
-/* Footer */
-footer {
-  background-color: #1a202c;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 20px;
-}
+

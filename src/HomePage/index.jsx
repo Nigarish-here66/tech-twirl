@@ -4,6 +4,7 @@ import Card1 from './Card1';
 import HeroSection from './HeroSection';
 import OurServices from './OurServices';
 import SoftwareCompany from './SoftwareCompany';
+import SoftwareCompany1 from './SoftwareCompany1';
 import Stats from './Stats';
 
 const Homepage = () => {
@@ -12,10 +13,13 @@ const Homepage = () => {
       <HeroSection />
       <AboutSection />
       <OurServices />
-      <SoftwareCompany />
-      <Stats />
       <Card />
       <Card1 />
+      <Stats /> 
+      <SoftwareCompany />
+      <SoftwareCompany1 />
+     
+      
     </div>
   );
 };
