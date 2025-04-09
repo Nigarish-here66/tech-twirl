@@ -135,10 +135,12 @@ const Portfolio = () => {
   });
 
   return (
-    
-    <div className={styles.container}>
+    <div>
       {/* Hero Section */}
       <HeroSection />
+  
+    <div className={styles.container}>
+      
       <motion.div 
         className={styles.cursor}
         variants={{
@@ -206,6 +208,7 @@ const Portfolio = () => {
         </AnimatePresence>
       </motion.div>
     </div>
+      </div>
   );
 };
 
