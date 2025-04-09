@@ -10,7 +10,7 @@ body {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Links */
@@ -29,12 +29,67 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-/* Services Section */
+/* ======== Services Section Heading with Underline ======== */
+.services-section {
+  padding: 80px 20px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.services-heading {
+  font-size: 48px;
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.heading-underline {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+
+.heading-underline span {
+  display: block;
+  height: 4px;
+  background-color: #3182ce;
+  border-radius: 2px;
+  animation: underline-grow 1s ease forwards;
+}
+
+.heading-underline span:nth-child(1) {
+  width: 15px;
+  animation-delay: 0s;
+}
+
+.heading-underline span:nth-child(2) {
+  width: 30px;
+  animation-delay: 0.2s;
+}
+
+.heading-underline span:nth-child(3) {
+  width: 15px;
+  animation-delay: 0.4s;
+}
+
+@keyframes underline-grow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+/* Services Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 40px 0;
+  padding: 10px 0;
 }
 
 @media (max-width: 1024px) {
@@ -54,16 +109,76 @@ button {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease, color 0.3s ease;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Slight zoom-in effect */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  background-color: #3182ce;
+  color: white;
+}
+
+.service-card .service-icon {
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: white;
+}
+
+.service-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-title {
+  color: white;
+}
+
+.service-description {
+  color: #4a5568;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-description {
+  color: #e2e8f0;
+}
+
+/* Service Card */
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
   margin-top: 20px;
 }
 
 .service-card:hover {
+  transform: translateY(-10px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #3182ce;
+  color: white;
 }
 
 .service-icon {
   margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  color: white;
 }
 
 .service-title {
@@ -147,16 +262,139 @@ button {
   background: #f7fafc;
 }
 
-/* Footer */
-.footer {
-  background-color: #1a202c;
-  color: #a0aec0;
-  padding: 48px 0;
-  text-align: center;
+20px;
+
+
+/* ======== Informational Boxes Section ======== */
+.info-boxes-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.info-box {
+  display: flex;
+  background-color: #f2f9ff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+}
+
+.info-icon {
+  background-color: #3182ce;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 25px;
+}
+
+.info-icon-inner {
+  width: 28px;
+  height: 28px;
+  color: #ffffff;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a202c;
+}
+
+.info-description {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .info-icon {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .info-text {
+    text-align: left;
+  }
+}
+.info-box {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.info-box:hover {
+  background-color: #3182ce;
+  color: white;
+}
+
+.info-box:hover .info-title,
+.info-box:hover .info-description {
+  color: white;
+}
+
+.info-box:hover .info-icon {
+  background-color: white;
+}
+
+.info-box:hover .info-icon-inner {
+  color: #3182ce;
+}
+/* Service Card Icon */
+.service-icon {
+  display: flex;
+  justify-content: center; /* Centers the icon horizontally */
+  align-items: center; /* Centers the icon vertically */
+  height: 80px; /* You can tweak this value to fit your design */
+  width: 80px; /* You can tweak this value to fit your design */
+  margin: 0 auto; /* Ensures the icon box is centered within the card */
+}
+
+.service-icon svg {
+  width: 60px; /* Increase the size of the icon */
+  height: 60px; /* Increase the size of the icon */
+}
+
+/* Service Card */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all content inside the service card */
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center; /* Ensure text is centered under the icon */
+  padding: 20px; /* Add padding if needed for spacing */
+  border: 1px solid #e2e8f0; /* Optional, adds a border to the card */
+  border-radius: 8px; /* Optional, rounds the corners of the card */
+}
+
+/* Service Title */
+.service-title {
+  margin-top: 15px; /* Space between the icon and the title */
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Service Description */
+.service-description {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-top: 10px;
 }

@@ -8,6 +8,7 @@ import HeroSection from '../components/HeroSection';
 import StatSection from '../components/StatSection';
 import ProjectCard from '../components/ProjectCard';
 
+
 const projects = [
   {
     id: 1,
@@ -134,7 +135,10 @@ const Portfolio = () => {
   });
 
   return (
+    
     <div className={styles.container}>
+      {/* Hero Section */}
+      <HeroSection />
       <motion.div 
         className={styles.cursor}
         variants={{
@@ -154,8 +158,7 @@ const Portfolio = () => {
         transition={{ type: "tween", ease: "backOut" }}
       />
 
-      {/* Hero Section */}
-      <HeroSection />
+      
 
       {/* Stats Section */}
       <StatSection />
