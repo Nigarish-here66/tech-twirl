@@ -1,4 +1,4 @@
-
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,14 +6,14 @@ body {
   background-color: #f9f9f9;
 }
 
-
+/* Container */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-
+/* Links */
 a {
   text-decoration: none;
   color: inherit;
@@ -29,7 +29,7 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-
+/* Header */
 header {
   background-color: #1a202c;
   color: white;
@@ -111,21 +111,23 @@ header {
 /* Contact Form */
 .contact-form {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 550px; /* Maximum width for form */
+  height: 480px;
+  max-width: 770px; /* Maximum width for form */
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 8px; /* Reduced padding for compact look */
-  margin: 8px 0; /* Adjusted margin */
+  padding: 10px; /* Reduced padding for compact look */
+  margin: 12px 0; /* Adjusted margin */
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 12px; /* Reduced font size */
+  height: 30px;
+  font-size: 18px; /* Reduced font size */
 }
 
 /* Textarea Specific */
@@ -169,5 +171,3 @@ header {
   border: none;
   filter: grayscale(30%) brightness(90%);
 }
-
-
