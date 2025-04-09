@@ -144,7 +144,7 @@ function Services() {
             Let's discuss how our services can help you achieve your goals
           </p>
            {/* Update to use Link */}
-          <Link to="/Contact">
+          <Link to="/contact">
             <button className="cta-button">Contact Us Today</button>
           </Link>
   
