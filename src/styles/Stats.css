@@ -33,9 +33,8 @@ h2 {
   cursor: pointer;
 }
 
-
 .stat-box:hover {
-  background: #00b0ee;
+  background: linear-gradient(135deg, #00b0ee, #0066ff); /* Gradient background on hover */
   color: white;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -62,7 +61,6 @@ h2 {
   height: 70px;
   transition: all 0.3s ease-in-out;
 }
-
 
 .stat-box:hover .stat-icon {
   background: white;
