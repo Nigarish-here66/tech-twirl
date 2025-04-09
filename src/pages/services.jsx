@@ -1,6 +1,6 @@
 import React from "react";
 import {Code2,Database,Globe2,MessageSquare,MonitorSmartphone,Settings2} from "lucide-react";
-
+import "../styles/servicepage.css";
 const services = [
   {
     icon: <Code2 className="w-12 h-12" style={{ color: "#3182ce" }} />,
