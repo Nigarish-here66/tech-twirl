@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Code2,
   Database,
@@ -59,16 +60,10 @@ function Services() {
       <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">Services</h1>
-          <div className="breadcrumb">
-            <a href="/">Home</a>
-            <span> → </span>
-            <span>Services</span>
-          </div>
-          <p className="hero-subtitle">
-            Comprehensive IT solutions tailored to your business needs
-          </p>
         </div>
       </section>
+
+     
 
       {/* Services Section Title */}
       <section className="services-section">
@@ -148,7 +143,11 @@ function Services() {
           <p className="cta-description">
             Let's discuss how our services can help you achieve your goals
           </p>
-          <button className="cta-button">Contact Us Today</button>
+           {/* Update to use Link */}
+          <Link to="/Contact">
+            <button className="cta-button">Contact Us Today</button>
+          </Link>
+  
         </div>
       </section>
     </div>
