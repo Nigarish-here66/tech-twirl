@@ -21,7 +21,7 @@ const SoftwareCompany = () => {
       </div>
       <div className="service-image-container">
         <img 
-          src="https://www.exytex.com/assets/img/softnew2.jpg" 
+          src="https://liveimages.algoworks.com/new-algoworks/wp-content/uploads/2022/06/07132503/software-house-gif2-min.gif" 
           alt="Software Development Services" 
           className="service-image"
         />
