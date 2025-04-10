@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/Card1.css";
-import serviceImage from "../assets/mobile-app.png";
 
 const Card1 = () => {
   return (
     <div className="service-container">
       <div className="service-image-container">
         <img 
-          src={serviceImage} 
-          alt="Software Development Services" 
+        src = "https://www.cyanous.com/img/ourtechnologies.gif"
+          // src="https://www.webdesigncompany.lk/images/services/creative-2-software-development-outsourcing-company-in-sri-lanka.gif" 
+          alt="Top Software Application Development" 
           className="service-image" 
         />
       </div>
