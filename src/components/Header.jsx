@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import styles from '../styles/Header.module.css';
 import logo from '../assets/logo.png';
+import AboutUsPanel from './AboutUsPanel';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,7 @@ const Header = () => {
   }, []);
 
   return (
+  <>
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
@@ -45,10 +48,14 @@ const Header = () => {
         </nav>
 
         <div className={styles.ctaButton}>
-          <Link to="/hire-us" className={styles.hireUsButton}>Hire Us</Link>
+        <button onClick={() => setShowPanel(true)} className={styles.hireUsButton}>
+          Hire Us
+        </button>
         </div>
       </div>
     </header>
+    <AboutUsPanel isOpen={showPanel} onClose={() => setShowPanel(false)} />
+</>
   );
 };
 
