@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/Card.module.css";
-import serviceImage from "../assets/laptop-image.png"; 
 
 const Card = () => {
   return (
@@ -16,11 +15,10 @@ const Card = () => {
           Icons, and Internet resources modernization. Our software house mission is spreading 
           the best services in the industry of online market.
         </p>
-        
       </div>
       <div className="service-image-container">
         <img 
-          src={serviceImage} 
+          src="https://liveimages.algoworks.com/new-algoworks/wp-content/uploads/2022/06/07132503/software-house-gif2-min.gif" 
           alt="Software Development Services" 
           className="service-image"
         />
