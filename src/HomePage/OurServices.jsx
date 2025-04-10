@@ -1,6 +1,7 @@
 import React from "react";
 import { FaLaptopCode, FaMobileAlt, FaBullhorn, FaChartBar, FaApple, FaAndroid } from "react-icons/fa";
 import "../styles/OurServices.css";
+import { Link } from "react-router-dom";
 
 const services = [
   { title: "Web Development", description: "We create and develop sites with high conversion, which are easy to bring to the TOP.", icon: <FaLaptopCode /> },
@@ -26,7 +27,7 @@ const Services = () => {
             <div className="icon">{service.icon}</div>
             <h3>{service.title}</h3>
             <p>{service.description}</p>
-            <a href="#" className="read-more">Read More</a>
+            <Link to="/services" className="read-more">Read More</Link>
           </div>
         ))}
       </div>
