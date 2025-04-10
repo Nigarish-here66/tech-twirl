@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/contactstyles.css";
+
 function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +20,6 @@ function Contact() {
       [name]: value,
     }));
 
-   
     setErrors((prev) => ({
       ...prev,
       [name]: "",
@@ -54,21 +54,6 @@ function Contact() {
       {/* Hero Section */}
       <div className="hero-section">
         <h1>Contact Us</h1>
-        <div className="breadcrumb">
-          <a href="/">Home</a>
-          <span> → </span>
-          <span>Contact</span>
-        </div>
-      </div>
-
-      {/* Map Section */}
-      <div className="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=..."
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
       </div>
 
       {/* Contact Section */}
@@ -154,6 +139,28 @@ function Contact() {
           </motion.div>
         </div>
       </section>
+
+      {/* Map Section - moved to the end */}
+      <motion.div
+        className="map-container"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=..."
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          style={{
+            width: "100%",
+            height: "350px",
+            border: "none",
+            borderRadius: "8px",
+            marginTop: "40px",
+          }}
+        ></iframe>
+      </motion.div>
     </div>
   );
 }
