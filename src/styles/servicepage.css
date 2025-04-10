@@ -164,7 +164,7 @@ button {
     background-color 0.3s ease;
   margin-top: 20px;
 }
- 
+
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -224,7 +224,7 @@ button {
 
 /* CTA Section */
 .cta-section {
-  background-color: #3182ce;
+  background-color: #494e53;
   padding: 64px 0;
   text-align: center;
   color: white;
@@ -244,7 +244,7 @@ button {
 
 .cta-description {
   font-size: 20px;
-  color: #bee3f8;
+  color: #bdc5ca;
   margin-bottom: 32px;
 }
 
@@ -261,6 +261,9 @@ button {
 .cta-button:hover {
   background: #f7fafc;
 }
+
+20px;
+
 
 /* ======== Informational Boxes Section ======== */
 .info-boxes-section {
@@ -395,3 +398,80 @@ button {
   color: #4a5568;
   margin-top: 10px;
 }
+/* Service Card Base Style */
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Service Card Hover Effect */
+.service-card:hover {
+  background-color: #3182ce;
+  color: white;
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover .service-title,
+.service-card:hover .service-description {
+  color: white;
+}
+
+.service-card:hover .service-icon {
+  background-color: white;
+}
+
+.service-card:hover .service-icon svg {
+  color: #3182ce;
+  fill: #3182ce;
+}
+
+/* Service Icon Container */
+.service-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  margin: 0 auto 15px;
+  background-color: #edeef0;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+/* SVG Icon Inside Service Icon */
+.service-icon svg {
+  width: 60px;
+  height: 60px;
+  color: white;
+  transition: color 0.3s ease, fill 0.3s ease;
+}
+
+/* Service Title */
+.service-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Service Description */
+.service-description {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
