@@ -36,16 +36,16 @@ const AboutUsPanel = ({ isOpen, onClose }) => {
         <a href="tel:+447596341265">+447596341265</a>
         </div>
 
-        <div className={styles.email}>
+        {/* <div className={styles.email}>
         <a href="mailto:info@exytex.com">info@exytex.com</a>
         </div>
 
         <div className={styles.socialIcons}>
-        <a href="#"><i className="fab fa-facebook-f"></i></a>
-        <a href="#"><i className="fab fa-twitter"></i></a>
-        <a href="#"><i className="fab fa-instagram"></i></a>
-        <a href="#"><i className="fab fa-pinterest-p"></i></a>
-        </div>
+        <a href="#https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+        <a href="#https://twitter-cl.vercel.app/login"><i className="fab fa-twitter"></i></a>
+        <a href="#https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
+        <a href="#https://www.pinterest.com/"><i className="fab fa-pinterest-p"></i></a>
+        </div> */}
 
       </div>
     </div>
