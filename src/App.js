@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HireUs from './pages/hireUs';
 import PortfolioPage from './pages/portfolio';
 import Footer from './components/Footer';
 import Homepage from './HomePage';
@@ -16,9 +15,8 @@ function App() {
       <Route path="/services" element={<OurServices />} />
       <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/hire-us" element={<HireUs />} />
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
   </Router>
   );
 }
