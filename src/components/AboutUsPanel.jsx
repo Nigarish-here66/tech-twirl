@@ -1,6 +1,7 @@
-// components/AboutUsPanel.jsx
 import React from 'react';
 import styles from '../styles/AboutUsPanel.module.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 const AboutUsPanel = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -31,9 +32,21 @@ const AboutUsPanel = ({ isOpen, onClose }) => {
         </form>
 
         <div className={styles.contacts}>
-          <a href="tel:+923095930315">+923095930315</a><br />
-          <a href="tel:+447596341265">+447596341265</a>
+        <a href="tel:+923095930315">+923095930315</a><br />
+        <a href="tel:+447596341265">+447596341265</a>
         </div>
+
+        <div className={styles.email}>
+        <a href="mailto:info@exytex.com">info@exytex.com</a>
+        </div>
+
+        <div className={styles.socialIcons}>
+        <a href="#"><i className="fab fa-facebook-f"></i></a>
+        <a href="#"><i className="fab fa-twitter"></i></a>
+        <a href="#"><i className="fab fa-instagram"></i></a>
+        <a href="#"><i className="fab fa-pinterest-p"></i></a>
+        </div>
+
       </div>
     </div>
   );
