@@ -1,13 +1,12 @@
 import React from "react";
 import "../styles/SoftwareCompany1.css";
 
-
 const SoftwareCompany1 = () => {
   return (
     <div className="service-container">
       <div className="service-image-container">
         <img 
-          src="https://www.exytex.com/assets/img/lastnew2.jpg" 
+          src="https://www.cyanous.com/img/ourtechnologies.gif" 
           alt="Software Development Services" 
           className="service-image" 
         />
@@ -15,7 +14,6 @@ const SoftwareCompany1 = () => {
       <div className="service-content">
         <h2>Bespoke Software for Business</h2>
         <p className="service-text">
-        
         Talking about the consideration of Software companies, 
         we should be aware about the deviation between software
          houses and software companies. Mostly the software companies 
