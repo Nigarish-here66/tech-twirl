@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/AboutUsPanel.module.css';
+import styles from '../styles/AboutUsPanel.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 

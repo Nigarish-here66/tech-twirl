@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import styles from '../styles/Portfolio.module.css';
+import styles from '../styles/Portfolio.css';
 
 const ProjectCard = ({ project, setCursorVariant }) => {
   const projectVariants = {
