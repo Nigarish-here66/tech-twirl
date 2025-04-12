@@ -19,7 +19,7 @@
   display: inline-block;
 }
 
-/* Animated Underline */
+
 .services-animated-underline {
   height: 4px;
   width: 6rem;
@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 
-/* Moving Dot */
+
 .services-underline-dot {
   width: 10px;
   height: 10px;
