@@ -1,6 +1,6 @@
 .container {
     min-height: 100vh;
-    background: 0 5px 20px rgba(0, 102, 255, 0.15);
+    background: linear-gradient(135deg, #0a1f44 0%, #1c3f75 100%);
     padding: 2rem;
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
   .cursor {
     width: 32px;
     height: 32px;
-    background: rgba(0, 102, 255, 0.1);
+    background:linear-gradient(135deg, #0a1f44 0%, #1c3f75 100%);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -17,7 +17,7 @@
   }
   
   .statsSection {
-    background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+    background: linear-gradient(135deg, #0a1f44 0%, #00CCFF 100%);
     padding: 4rem 2rem;
     border-radius: 20px;
     margin-bottom: 3rem;

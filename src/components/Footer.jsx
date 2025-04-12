@@ -44,10 +44,10 @@ const Footer = () => {
         <p>© 2025 . All Rights Reserved.</p>
         <h4>Follow Us</h4>
         <div class="social-icons">
-          <a href="https://www.linkedin.com/in/saadamin662/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://github.com/saad662" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i>
           </a>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">

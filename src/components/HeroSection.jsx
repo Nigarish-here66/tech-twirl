@@ -33,6 +33,7 @@ const HeroSection = () => {
           className={styles.heroButton}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          navigate="/portfolio"
         >
           Explore Our Work
         </motion.button>
