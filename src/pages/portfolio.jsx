@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
-import styles from '../styles/Portfolio.css';
+import styles from '../styles/Portfolio.module.css';
 
 
 import HeroSection from '../components/HeroSection';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from '../styles/Portfolio.css';
+import styles from '../styles/Portfolio.module.css';
 
 const StatSection = () => {
   const statsVariants = {

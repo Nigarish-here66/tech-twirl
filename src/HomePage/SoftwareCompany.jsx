@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Card.css";
+import "../styles/Card.module.css";
 
 const SoftwareCompany = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
-import styles from '../styles/Header.css';
+import styles from '../styles/Header.module.css';
 import logo from '../assets/logo.png';
 import AboutUsPanel from './AboutUsPanel';
 
