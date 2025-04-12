@@ -11,7 +11,7 @@ h2 {
 }
 
 .highlight {
-  color: #579ee2;
+  color:  #28569a;
 }
 
 .stats-container {
@@ -34,23 +34,23 @@ h2 {
 }
 
 .stat-box:hover {
-  background: linear-gradient(135deg, #00b0ee, #0066ff); /* Gradient background on hover */
+  background: linear-gradient(135deg, #28569a, #00CCFF);
   color: white;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Text & Icon Color Change on Hover */
+
 .stat-box:hover h3,
 .stat-box:hover p {
   color: white;
 }
 
-/* Icon Style */
+
 .stat-icon {
   font-size: 40px;
   margin-bottom: 10px;
-  color: #579ee2;
+  color:  #28569a;
   background: #e2edfd;
   border-radius: 50%;
   padding: 15px;
