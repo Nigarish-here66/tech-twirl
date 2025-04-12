@@ -19,18 +19,18 @@
   display: inline-block;
 }
 
-
+/* Animated Underline */
 .services-animated-underline {
   height: 4px;
   width: 6rem;
-  background-color: #3b82f6;
+  background-color: #28569a;
   border-radius: 9999px;
   margin: 2px auto 15px;
   position: relative;
   overflow: hidden;
 }
 
-
+/* Moving Dot */
 .services-underline-dot {
   width: 10px;
   height: 10px;
@@ -77,7 +77,7 @@
 
 .service-card:hover .icon {
   background: white;
-  color: #00B0EE;
+  color: #28569a;
 }
 
 .icon {
@@ -118,10 +118,10 @@
   text-decoration: underline;
 }
 
-
+/* Service Container Styling */
 .service-container {
   display: flex;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
   gap: 40px;
@@ -153,9 +153,7 @@
 
 .service-content:hover .service-text {
   color: transparent; 
-  background: linear-gradient(135deg, #28569a, #00CCFF); 
-  -webkit-background-clip: text; 
-  background-clip: text;
+  background: linear-gradient(135deg, #28569a, #00CCFF);
 }
 
 .image-caption {
