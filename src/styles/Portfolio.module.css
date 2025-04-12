@@ -1,6 +1,6 @@
 .container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #0a1f44 0%, #1c3f75 100%);
     padding: 2rem;
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
   .cursor {
     width: 32px;
     height: 32px;
-    background: rgba(0, 102, 255, 0.1);
+    background:linear-gradient(135deg, #0a1f44 0%, #1c3f75 100%);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
@@ -17,11 +17,11 @@
   }
   
   .statsSection {
-    background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+    background: linear-gradient(135deg, #0a1f44 0%, #00CCFF 100%);
     padding: 4rem 2rem;
     border-radius: 20px;
     margin-bottom: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 102, 255, 0.15);
   }
   
   .statsContainer {
@@ -82,7 +82,7 @@
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #0066FF;
+    color: #28569a;
   }
   
   .searchInput {
@@ -97,7 +97,7 @@
   
   .searchInput:focus {
     outline: none;
-    border-color: #0066FF;
+    border-color: #28569a;
     box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.1);
   }
   
@@ -112,7 +112,7 @@
     border-radius: 10px;
     border: none;
     background: white;
-    color: #0066FF;
+    color: #28569a;
     font-weight: 500;
     cursor: pointer;
     text-transform: capitalize;
@@ -121,7 +121,7 @@
   }
   
   .filterButton.active {
-    background: #0066FF;
+    background: #28569a;
     color: white;
   }
   
@@ -171,7 +171,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #0066FF;
+    color: #28569a;
   }
   
   .projectContent p {
@@ -190,7 +190,7 @@
   .techTag {
     padding: 0.5rem 1rem;
     background: rgba(0, 102, 255, 0.1);
-    color: #0066FF;
+    color: #28569a;
     border-radius: 20px;
     font-size: 0.875rem;
   }
@@ -213,13 +213,13 @@
   }
   
   .demoLink {
-    background: #0066FF;
+    background: #28569a;
     color: white;
   }
   
   .sourceLink {
     background: rgba(0, 102, 255, 0.1);
-    color: #0066FF;
+    color: #28569a;
   }
   
   .demoLink:hover,
