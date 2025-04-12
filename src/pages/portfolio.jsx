@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
-import styles from '../styles/Portfolio.module.css';
+import styles from '../styles/Portfolio.css';
 
 
 import HeroSection from '../components/HeroSection';
@@ -139,10 +139,10 @@ const Portfolio = () => {
       {/* Hero Section */}
       <HeroSection />
   
-    <div className={styles.container}>
+    <div className="container">
       
       <motion.div 
-        className={styles.cursor}
+        className="cursor"
         variants={{
           default: {
             x: mousePosition.x - 16,
@@ -166,18 +166,18 @@ const Portfolio = () => {
       <StatSection />
 
       {/* Search and Filter Section */}
-      <div className={styles.controlsSection}>
-        <div className={styles.searchBox}>
-          <Search className={styles.searchIcon} />
+      <div className="controlsSection">
+        <div className="searchBox">
+          <Search className="searchIcon" />
           <input
             type="text"
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className={styles.searchInput}
+            className="searchInput"
           />
         </div>
-        <div className={styles.filterContainer}>
+        <div className="filterContainer">
           {categories.map(category => (
             <motion.button
               key={category}
@@ -194,7 +194,7 @@ const Portfolio = () => {
 
       {/* Projects Grid */}
       <motion.div 
-        className={styles.projectsGrid}
+        className="projectsGrid"
         layout
       >
         <AnimatePresence>

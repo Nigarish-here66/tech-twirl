@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import styles from '../styles/Portfolio.module.css';
+import styles from '../styles/Portfolio.css';
 
 const ProjectCard = ({ project, setCursorVariant }) => {
   const projectVariants = {
@@ -33,21 +33,21 @@ const ProjectCard = ({ project, setCursorVariant }) => {
       initial="hidden"
       animate="visible"
       whileHover="hover"
-      className={styles.projectCard}
+      className="projectCard"
       style={{
         borderColor: project.color
       }}
       onMouseEnter={() => setCursorVariant("hover")}
       onMouseLeave={() => setCursorVariant("default")}
     >
-      <div className={styles.projectImageContainer}>
+      <div className="projectImageContainer">
         <img 
           src={project.imageUrl } 
           alt={project.title} 
-          className={styles.projectImage}
+          className="projectImage"
         />
       </div>
-      <div className={styles.projectContent}>
+      <div className="projectContent">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <div className={styles.techStack}>
@@ -57,7 +57,7 @@ const ProjectCard = ({ project, setCursorVariant }) => {
             </span>
           ))}
         </div>
-        <div className={styles.projectLinks}>
+        <div className="projectLinks">
           <motion.a 
             href={project.demoLink}
             whileHover={{ scale: 1.1 }}

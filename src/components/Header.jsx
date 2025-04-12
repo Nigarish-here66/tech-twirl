@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
-import styles from '../styles/Header.module.css';
+import { Link } from 'react-router-dom';
+import '../styles/Header.css'; // ✅ Regular CSS import
 import logo from '../assets/logo.png';
 import AboutUsPanel from './AboutUsPanel';
 
@@ -18,44 +18,44 @@ const Header = () => {
   }, []);
 
   return (
-  <>
-    <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.headerContainer}>
-        <div className={styles.logoContainer}>
-          <Link to="/" className={styles.logo}>
-            <img src={logo} alt="Logo" className={scrolled ? styles.shrinkLogo : ''} />
-          </Link>
-        </div>
+    <>
+      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+        <div className="headerContainer">
+          <div className="logoContainer">
+            <Link to="/" className="logo">
+              <img src={logo} alt="Logo" className={scrolled ? 'shrinkLogo' : ''} />
+            </Link>
+          </div>
 
-        <nav className={styles.navigation}>
-          <ul className={styles.navList}>
-            <li className={styles.navItem}>
-              <Link to="/" className={styles.navLink}>Home</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/services" className={styles.navLink}>Services</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/portfolio" className={styles.navLink}>Portfolio</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/team" className={styles.navLink}>Team</Link>
-            </li>
-            <li className={styles.navItem}>
-              <Link to="/contact" className={styles.navLink}>Contact</Link>
-            </li>
-          </ul>
-        </nav>
+          <nav className="navigation">
+            <ul className="navList">
+              <li className="navItem">
+                <Link to="/" className="navLink">Home</Link>
+              </li>
+              <li className="navItem">
+                <Link to="/services" className="navLink">Services</Link>
+              </li>
+              <li className="navItem">
+                <Link to="/portfolio" className="navLink">Portfolio</Link>
+              </li>
+              <li className="navItem">
+                <Link to="/team" className="navLink">Team</Link>
+              </li>
+              <li className="navItem">
+                <Link to="/contact" className="navLink">Contact</Link>
+              </li>
+            </ul>
+          </nav>
 
-        <div className={styles.ctaButton}>
-        <button onClick={() => setShowPanel(true)} className={styles.hireUsButton}>
-          Hire Us
-        </button>
+          <div className="ctaButton">
+            <button onClick={() => setShowPanel(true)} className="hireUsButton">
+              Hire Us
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
-    <AboutUsPanel isOpen={showPanel} onClose={() => setShowPanel(false)} />
-</>
+      </header>
+      <AboutUsPanel isOpen={showPanel} onClose={() => setShowPanel(false)} />
+    </>
   );
 };
 

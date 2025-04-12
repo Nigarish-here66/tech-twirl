@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from '../styles/HeroSection.module.css'; 
+import { Link } from 'react-router-dom'; // ✅ Import Link
+import '../styles/HeroSection.css'; 
 import img from '../assets/hero.png';
 
 const HeroSection = () => {
@@ -18,25 +19,27 @@ const HeroSection = () => {
 
   return (
     <motion.div 
-      className={styles.heroSection}
+      className="heroSection"
       initial="hidden"
       animate="visible"
       variants={heroVariants}
     >
-      {/* Background Image as <img> */}
-      <img src={img} alt="Background" className={styles.heroBackground} />
+      <img src={img} alt="Background" className="heroBackground" />
 
-      <div className={styles.heroContent}> 
+      <div className="heroContent"> 
         <h1 className="fade-in">Software House Portfolio</h1>
         <p className="fade-in">Crafting innovative digital solutions for modern businesses</p>
-        <motion.button 
-          className={styles.heroButton}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          navigate="/portfolio"
-        >
-          Explore Our Work
-        </motion.button>
+        
+        {/* ✅ Use Link instead of navigate */}
+        <Link to="/portfolio">
+          <motion.button 
+            className="heroButton"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Explore Our Work
+          </motion.button>
+        </Link>
       </div>
     </motion.div>
   );

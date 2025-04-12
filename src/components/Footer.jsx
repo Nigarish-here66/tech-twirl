@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../styles/Footer.css';
+import '../styles/Footer.css';
 const Footer = () => {
 
   const latitude = 24.8790;
