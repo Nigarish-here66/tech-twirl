@@ -21,7 +21,7 @@ const AboutUsPanel = ({ isOpen, onClose }) => {
           <input type="text" placeholder="Your Name" />
           <input type="email" placeholder="Your Email" />
           <input type="text" placeholder="Your Subject" />
-          <select>
+          <select className={styles.select}> 
             <option>Open This To Select Service</option>
             <option>Web Development</option>
             <option>Mobile Development</option>
@@ -32,12 +32,12 @@ const AboutUsPanel = ({ isOpen, onClose }) => {
         </form>
 
         <div className={styles.contacts}>
-        <a href="tel:+923095930315">+923095930315</a><br />
-        <a href="tel:+447596341265">+447596341265</a>
+        <a href="tel:+923095930315">+923097487395</a><br />
+        <a href="tel:+447596341265">+448928399965</a>
         </div>
 
-        {/* <div className={styles.email}>
-        <a href="mailto:info@exytex.com">info@exytex.com</a>
+        <div className={styles.email}>
+        <a href="mailto:info@exytex.com">info@techtwirl.com</a>
         </div>
 
         <div className={styles.socialIcons}>
@@ -45,7 +45,7 @@ const AboutUsPanel = ({ isOpen, onClose }) => {
         <a href="#https://twitter-cl.vercel.app/login"><i className="fab fa-twitter"></i></a>
         <a href="#https://www.instagram.com/"><i className="fab fa-instagram"></i></a>
         <a href="#https://www.pinterest.com/"><i className="fab fa-pinterest-p"></i></a>
-        </div> */}
+        </div>
 
       </div>
     </div>

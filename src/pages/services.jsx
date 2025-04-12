@@ -1,15 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Code2,
-  Database,
-  Globe2,
-  Laptop2,
-  LayoutGrid,
-  MessageSquare,
-  MonitorSmartphone,
-  Settings2,
-} from "lucide-react";
+import {Code2,Database,Globe2,LayoutGrid,MessageSquare,MonitorSmartphone,Settings2,} from "lucide-react";
 import "../styles/servicepage.css";
 
 const services = [
