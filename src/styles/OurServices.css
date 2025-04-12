@@ -19,7 +19,7 @@
   display: inline-block;
 }
 
-/* Animated Underline */
+
 .services-animated-underline {
   height: 4px;
   width: 6rem;
@@ -30,7 +30,7 @@
   overflow: hidden;
 }
 
-/* Moving Dot */
+
 .services-underline-dot {
   width: 10px;
   height: 10px;
@@ -65,7 +65,7 @@
 }
 
 .service-card:hover {
-  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient on hover */
+  background: linear-gradient(135deg, #28569a, #00CCFF); /* Gradient applied */
   transform: translateY(-5px);
 }
 
@@ -90,7 +90,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 15px;
-  color: #8DBBED;
+  color: #28569a;
 }
 
 .service-card h3 {
@@ -118,7 +118,7 @@
   text-decoration: underline;
 }
 
-/* Service Container Styling */
+
 .service-container {
   display: flex;
   max-width: 1200px;
@@ -139,8 +139,8 @@
 }
 
 .service-content:hover {
-  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient on hover */
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, #28569a, #00CCFF); /* HireUs gradient applied */
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.2);
   transform: translateY(-5px);
 }
 
@@ -152,10 +152,10 @@
 }
 
 .service-content:hover .service-text {
-  color: transparent; /* Hide the regular text color */
-  background: linear-gradient(135deg, #0066FF, #00CCFF); /* Gradient text color */
-  -webkit-background-clip: text; /* Apply the gradient to the text */
-  background-clip: text; /* Ensures the text is clipped to the gradient */
+  color: transparent; 
+  background: linear-gradient(135deg, #28569a, #00CCFF); 
+  -webkit-background-clip: text; 
+  background-clip: text;
 }
 
 .image-caption {
