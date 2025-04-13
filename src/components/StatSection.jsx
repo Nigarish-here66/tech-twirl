@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from '../styles/Portfolio.module.css';
+import  '../styles/Portfolio.css';
 
 const StatSection = () => {
   const statsVariants = {
@@ -17,28 +17,28 @@ const StatSection = () => {
 
   return (
     <motion.div 
-      className={styles.statsSection}
+      className="statsSection"
       initial="hidden"
       animate="visible"
       variants={statsVariants}
     >
-      <div className={styles.statsContainer}>
+      <div className="statsContainer">
         <motion.div 
-          className={styles.statCard}
+          className="statCard"
           whileHover={{ scale: 1.1 }}
         >
           <h3>100+</h3>
           <p>Projects Delivered</p>
         </motion.div>
         <motion.div 
-          className={styles.statCard}
+          className="statCard"
           whileHover={{ scale: 1.1 }}
         >
           <h3>50+</h3>
           <p>Happy Clients</p>
         </motion.div>
         <motion.div 
-          className={styles.statCard}
+          className="statCard"
           whileHover={{ scale: 1.1 }}
         >
           <h3>25+</h3>
