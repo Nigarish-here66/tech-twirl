@@ -1,27 +1,45 @@
 import React from "react";
 import styles from "../styles/Teams.module.css";
 import { useNavigate } from "react-router-dom";
-
+import google from "../assets/google.png";
+import clutch from "../assets/clutch.png";
+import trustpilot from "../assets/trustpilot.png";
+import shopify from "../assets/shopify.png";
+import manifest from "../assets/manifest.png";
 const Testimonials = () => {
   const navigate = useNavigate();
 
   return (
     <div className={styles.testimonialsContainer}>
       <div className={styles.logoRow}>
-        <img src="/logos/clutch.png" alt="Clutch" />
-        <img src="/logos/google.png" alt="Google Reviews" />
-        <img src="/logos/trustpilot.png" alt="TrustPilot" />
-        <img src="/logos/manifest.png" alt="The Manifest" />
-        <img src="/logos/shopify.png" alt="Shopify Partners" />
+        <a href="https://clutch.co/profile/elexoft-technologies" target="_blank" rel="noopener noreferrer">
+          <img src={clutch} alt="Clutch" />
+        </a>
+
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+          <img src={google} alt="Google Reviews" />
+        </a>
+
+        <a href="https://www.trustpilot.com/review/elexoft.com" target="_blank" rel="noopener noreferrer">
+          <img src={trustpilot} alt="TrustPilot" />
+        </a>
+
+        <a href="https://themanifest.com/company/elexoft-technologies" target="_blank" rel="noopener noreferrer">
+          <img src={manifest} alt="The Manifest" />
+        </a>
+
+        <a href="https://www.shopify.com/partners" target="_blank" rel="noopener noreferrer">
+          <img src={shopify} alt="Shopify Partners" />
+        </a>
       </div>
 
       <div className={styles.buttons}>
-        <button onClick={() => navigate("/testimonials")}>Read Testimonials</button>
+        <button>Read Testimonials</button>
         <button onClick={() => navigate("/Portfolio")}>View Case Study</button>
       </div>
 
       <div className={styles.reviewCard}>
-        <h3>EleXoft Technologies Reviews</h3>
+        <h3>Tech Twirl Technologies Reviews</h3>
         <p><strong>5.0 ★★★★★</strong> — 6 reviews</p>
 
         <div className={styles.reviewContent}>
@@ -34,9 +52,9 @@ const Testimonials = () => {
 
           <div className={styles.feedback}>
             <blockquote>
-              “We are very happy to work with Elexoft as they have provided us their quality of work.”
+              “We are very happy to work with Tech Twirl as they have provided us their quality of work.”
             </blockquote>
-            <p><strong>Feedback summary:</strong> Elexoft Technologies finished the work within their designated timeline... </p>
+            <p><strong>Feedback summary:</strong> Tech Twirl Technologies finished the work within their designated timeline... </p>
             <button onClick={() => navigate("/Portfolio")} className={styles.readMore}>Read Full Review →</button>
           </div>
 
