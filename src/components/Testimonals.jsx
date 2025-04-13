@@ -17,7 +17,7 @@ const Testimonials = () => {
 
       <div className={styles.buttons}>
         <button onClick={() => navigate("/testimonials")}>Read Testimonials</button>
-        <button onClick={() => navigate("/case-study")}>View Case Study</button>
+        <button onClick={() => navigate("/Portfolio")}>View Case Study</button>
       </div>
 
       <div className={styles.reviewCard}>
@@ -37,7 +37,7 @@ const Testimonials = () => {
               “We are very happy to work with Elexoft as they have provided us their quality of work.”
             </blockquote>
             <p><strong>Feedback summary:</strong> Elexoft Technologies finished the work within their designated timeline... </p>
-            <button className={styles.readMore}>Read Full Review →</button>
+            <button onClick={() => navigate("/Portfolio")} className={styles.readMore}>Read Full Review →</button>
           </div>
 
           <div className={styles.reviewer}>

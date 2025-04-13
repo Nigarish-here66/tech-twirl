@@ -237,6 +237,7 @@
   
   .reviewCard {
     background: #f7f7f7;
+    border-color: #000;
     padding: 2rem;
     border-radius: 12px;
     margin: 0 auto;
@@ -260,7 +261,7 @@
   .readMore {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background: #e63946;
+    background: linear-gradient(135deg, #28569a 0%, #00CCFF 100%);
     color: white;
     border: none;
     border-radius: 5px;
