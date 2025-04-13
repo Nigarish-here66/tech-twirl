@@ -6,6 +6,7 @@ import clutch from "../assets/clutch.png";
 import trustpilot from "../assets/trustpilot.png";
 import shopify from "../assets/shopify.png";
 import manifest from "../assets/manifest.png";
+
 const Testimonials = () => {
   const navigate = useNavigate();
 
@@ -34,7 +35,7 @@ const Testimonials = () => {
       </div>
 
       <div className={styles.buttons}>
-        <button>Read Testimonials</button>
+        <button onClick={() => navigate("/Team")}>Read Testimonials</button>
         <button onClick={() => navigate("/Portfolio")}>View Case Study</button>
       </div>
 
