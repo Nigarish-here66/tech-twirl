@@ -1,0 +1,269 @@
+.container {
+    min-height: 50vh;
+    background: #f9f9f9;
+    padding: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-section {
+    background: linear-gradient(135deg, #0a1f44 0%, #00CCFF 100%);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 102, 255, 0.15);
+  }
+  
+  .team-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+    color: white;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .team-card {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(111, 162, 233, 0.893);
+  }
+  
+  .team-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .team-name {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #000;
+  }
+  
+  .team-role {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #19589a;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icons a {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    background-color: #0056b3;
+  }
+
+  .team-card:hover .social-icons {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .commitmentSection {
+    padding: 4rem 2rem;
+    margin-top: 3rem;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+  }
+  
+  .commitmentContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .commitmentImage img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .commitmentText h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .teamsAnimatedUnderline {
+    height: 4px;
+    width: 6rem;
+    background-color: #28569a;
+    border-radius: 9999px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .teamsUnderlineDot {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    animation: teamsMoveDot 2s infinite linear;
+  }
+  
+  @keyframes teamsMoveDot {
+    0% { left: 0; }
+    100% { left: 100%; }
+  }
+  
+  
+  .commitmentText p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .commitmentContent {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .commitmentImage {
+      flex: 1;
+    }
+  
+    .commitmentText {
+      flex: 1;
+      padding-left: 2rem;
+    }
+  }
+  
+  .aboutUsSection {
+    text-align: center;
+    padding: 5px 20px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .aboutTitle {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .aboutDescription {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+  }
+  
+  .highlight {
+    color: #003fdf; /* red like in the image */
+    font-weight: 500;
+  }
+  
+  .testimonialsContainer {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .logoRow {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .logoRow img {
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .buttons button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .reviewCard {
+    background: #f7f7f7;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: left;
+  }
+  
+  .reviewContent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .project, .feedback, .reviewer {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .readMore {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
