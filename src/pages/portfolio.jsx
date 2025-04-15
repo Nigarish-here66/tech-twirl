@@ -182,7 +182,7 @@ const Portfolio = () => {
             <motion.button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`${styles.filterButton} ${activeFilter === category ? styles.active : ''}`}
+              className={`${"filterButton"} ${activeFilter === category ? "active": ''}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
