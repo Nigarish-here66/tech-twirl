@@ -224,11 +224,19 @@ button {
 
 /* CTA Section */
 .cta-section {
-  background-color: #494e53;
-  padding: 64px 0;
-  text-align: center;
-  color: white;
-  margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #0b4592;
+    box-shadow: #0b4592 0px 5px 15px 0px;
+    padding: 2rem;
+    max-width: 1000px;
+    text-align: center;
+    color: white;
 }
 
 .cta-content {
@@ -254,12 +262,12 @@ button {
   font-weight: 600;
   padding: 12px 32px;
   border-radius: 8px;
-  border: none;
+  border: 2px solid #1871c4;
   font-size: 16px;
 }
 
 .cta-button:hover {
-  background: #f7fafc;
+  background: #0f5a8c;
 }
 
 /* ======== Informational Boxes Section ======== */

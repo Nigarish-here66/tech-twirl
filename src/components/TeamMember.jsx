@@ -10,7 +10,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/f
 
 const teamMembers = [
     {
-      name: "Nigarish Muneeb",
+      name: "Nigarish Fateh",
       role: "Project Manager",
       image: NigImg,
     },
