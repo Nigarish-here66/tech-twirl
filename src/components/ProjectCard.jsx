@@ -50,9 +50,9 @@ const ProjectCard = ({ project, setCursorVariant }) => {
       <div className="projectContent">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
-        <div className={styles.techStack}>
+        <div className={"techStack"}>
           {project.technologies.map(tech => (
-            <span key={tech} className={styles.techTag}>
+            <span key={tech} className={"techTag"}>
               {tech}
             </span>
           ))}
@@ -61,14 +61,14 @@ const ProjectCard = ({ project, setCursorVariant }) => {
           <motion.a 
             href={project.demoLink}
             whileHover={{ scale: 1.1 }}
-            className={styles.demoLink}
+            className={"demoLink"}
           >
             <ExternalLink size={20} /> Live Demo
           </motion.a>
           <motion.a 
             href={project.sourceLink}
             whileHover={{ scale: 1.1 }}
-            className={styles.sourceLink}
+            className={"sourceLink"}
           >
             <Github size={20} /> Source
           </motion.a>
