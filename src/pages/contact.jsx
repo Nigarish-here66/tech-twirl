@@ -13,7 +13,7 @@ function Contact() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [popupMessage, setPopupMessage] = useState(""); 
+  const [popupMessage, setPopupMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,19 +82,6 @@ function Contact() {
         <p>If there's anything you would like to know, feel free to reach out!</p>
 
         <div className="contact-container">
-          {/* Popup Message */}
-          {popupMessage && (
-            <motion.div
-              className="popup-message"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {popupMessage}
-            </motion.div>
-          )}
-
           {/* Form */}
           <motion.form
             className="contact-form"
@@ -103,6 +90,21 @@ function Contact() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
+            {/* Popup Message inside the form */}
+            {popupMessage && (
+              <motion.div
+                className={`popup-message ${
+                  popupMessage.includes("Failed") ? "error" : ""
+                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {popupMessage}
+              </motion.div>
+            )}
+
             <input
               type="text"
               name="name"
@@ -110,7 +112,7 @@ function Contact() {
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <span style={{ color: "red" }}>{errors.name}</span>}
+            {errors.name && <span className="error-message">{errors.name}</span>}
 
             <input
               type="email"
@@ -120,7 +122,7 @@ function Contact() {
               onChange={handleChange}
             />
             {errors.email && (
-              <span style={{ color: "red" }}>{errors.email}</span>
+              <span className="error-message">{errors.email}</span>
             )}
 
             <input
@@ -131,7 +133,7 @@ function Contact() {
               onChange={handleChange}
             />
             {errors.subject && (
-              <span style={{ color: "red" }}>{errors.subject}</span>
+              <span className="error-message">{errors.subject}</span>
             )}
 
             <textarea
@@ -142,7 +144,7 @@ function Contact() {
               onChange={handleChange}
             />
             {errors.message && (
-              <span style={{ color: "red" }}>{errors.message}</span>
+              <span className="error-message">{errors.message}</span>
             )}
 
             <button type="submit" disabled={submitted}>
