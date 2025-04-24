@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 import "../styles/contactstyles.css";
 
 function Contact() {
@@ -12,6 +13,7 @@ function Contact() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [popupMessage, setPopupMessage] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +28,7 @@ function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let formErrors = {};
 
@@ -39,13 +41,25 @@ function Contact() {
     setErrors(formErrors);
 
     if (Object.keys(formErrors).length === 0) {
-      console.log("Submitted Data:", formData);
-      setSubmitted(true);
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/contact",
+          formData
+        );
+        console.log("Response:", response.data);
 
-      setTimeout(() => {
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        setSubmitted(false);
-      }, 3000);
+        setPopupMessage("Your message has been sent successfully!");
+        setSubmitted(true);
+
+        setTimeout(() => {
+          setPopupMessage("");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setSubmitted(false);
+        }, 3000);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setPopupMessage("Failed to send your message. Please try again.");
+      }
     }
   };
 
@@ -65,11 +79,22 @@ function Contact() {
         >
           We'll Be Glad To Assist You!
         </motion.h2>
-        <p>
-          If there's anything you would like to know, feel free to reach out!
-        </p>
+        <p>If there's anything you would like to know, feel free to reach out!</p>
 
         <div className="contact-container">
+          {/* Popup Message */}
+          {popupMessage && (
+            <motion.div
+              className="popup-message"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {popupMessage}
+            </motion.div>
+          )}
+
           {/* Form */}
           <motion.form
             className="contact-form"
@@ -140,7 +165,7 @@ function Contact() {
         </div>
       </section>
 
-      {/* Map Section - moved to the end */}
+      {/* Map Section */}
       <motion.div
         className="map-container"
         initial={{ opacity: 0, y: 50 }}
