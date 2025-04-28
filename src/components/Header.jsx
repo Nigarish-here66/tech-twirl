@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/Header.css'; // ✅ Regular CSS import
 import logo from '../assets/logo.png';
 import AboutUsPanel from './AboutUsPanel';
+import Admin from '../pages/Admin';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -44,10 +45,14 @@ const Header = () => {
               <li className="navItem">
                 <Link to="/contact" className="navLink">Contact</Link>
               </li>
+              
             </ul>
           </nav>
 
           <div className="ctaButton">
+            <li className="navItem">
+              <Link to="/admin" className="navLink">Admin</Link></li>
+            <li></li>
             <button onClick={() => setShowPanel(true)} className="hireUsButton">
               Hire Us
             </button>
