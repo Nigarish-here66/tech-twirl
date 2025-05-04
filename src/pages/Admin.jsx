@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Admin.css';
 
 // Default hardcoded projects (mapped to match database fields)
@@ -87,6 +88,8 @@ const defaultProjects = [
 ];
 
 const Admin = () => {
+  const navigate = useNavigate();
+
   const [portfolios, setPortfolios] = useState([]);
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
@@ -96,32 +99,31 @@ const Admin = () => {
   const [image, setImage] = useState(null);
   const [editingId, setEditingId] = useState(null);
 
+  // Helper to attach Authorization token
+  const getAuthHeaders = () => {
+    const token = localStorage.getItem('adminToken');
+    return {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  };
+
   useEffect(() => {
-    fetchPortfolios();
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      navigate('/login'); // Redirect if not authenticated
+    } else {
+      fetchPortfolios();
+    }
   }, []);
 
   const fetchPortfolios = async () => {
     try {
-      const { data } = await axios.get('/api/portfolio');
-      if (data.length === 0) {
-        await preloadDefaultProjects();
-        const updatedData = await axios.get('/api/portfolio');
-        setPortfolios(updatedData.data);
-      } else {
-        setPortfolios(data);
-      }
+      const { data } = await axios.get('/api/portfolio', getAuthHeaders());
+      setPortfolios(data);
     } catch (error) {
       console.error('Error fetching portfolios:', error);
-    }
-  };
-
-  const preloadDefaultProjects = async () => {
-    try {
-      for (const project of defaultProjects) {
-        await axios.post('/api/portfolio', project);
-      }
-    } catch (error) {
-      console.error('Error preloading default projects:', error);
     }
   };
 
@@ -138,11 +140,19 @@ const Admin = () => {
     try {
       if (editingId) {
         await axios.put(`/api/portfolio/${editingId}`, formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
+          ...getAuthHeaders(),
+          headers: {
+            ...getAuthHeaders().headers,
+            'Content-Type': 'multipart/form-data',
+          },
         });
       } else {
         await axios.post('/api/portfolio', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }
+          ...getAuthHeaders(),
+          headers: {
+            ...getAuthHeaders().headers,
+            'Content-Type': 'multipart/form-data',
+          },
         });
       }
       fetchPortfolios();
@@ -174,7 +184,7 @@ const Admin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
-      await axios.delete(`/api/portfolio/${id}`);
+      await axios.delete(`/api/portfolio/${id}`, getAuthHeaders());
       fetchPortfolios();
     } catch (error) {
       console.error('Error deleting project:', error);
