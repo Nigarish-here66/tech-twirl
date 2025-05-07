@@ -88,8 +88,6 @@ const defaultProjects = [
 ];
 
 const Admin = () => {
-  const navigate = useNavigate();
-
   const [portfolios, setPortfolios] = useState([]);
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
@@ -98,32 +96,33 @@ const Admin = () => {
   const [liveDemoLink, setLiveDemoLink] = useState('');
   const [image, setImage] = useState(null);
   const [editingId, setEditingId] = useState(null);
-
-  // Helper to attach Authorization token
-  const getAuthHeaders = () => {
-    const token = localStorage.getItem('adminToken');
-    return {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-  };
-
+  
   useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      navigate('/login'); // Redirect if not authenticated
-    } else {
-      fetchPortfolios();
-    }
+    fetchPortfolios();
   }, []);
 
   const fetchPortfolios = async () => {
     try {
-      const { data } = await axios.get('/api/portfolio', getAuthHeaders());
-      setPortfolios(data);
+      const { data } = await axios.get('/api/portfolio');
+      if (data.length === 0) {
+        await preloadDefaultProjects();
+        const updatedData = await axios.get('/api/portfolio');
+        setPortfolios(updatedData.data);
+      } else {
+        setPortfolios(data);
+      }
     } catch (error) {
       console.error('Error fetching portfolios:', error);
+    }
+  };
+
+  const preloadDefaultProjects = async () => {
+    try {
+      for (const project of defaultProjects) {
+        await axios.post('/api/portfolio', project);
+      }
+    } catch (error) {
+      console.error('Error preloading default projects:', error);
     }
   };
 
@@ -140,19 +139,11 @@ const Admin = () => {
     try {
       if (editingId) {
         await axios.put(`/api/portfolio/${editingId}`, formData, {
-          ...getAuthHeaders(),
-          headers: {
-            ...getAuthHeaders().headers,
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' }
         });
       } else {
         await axios.post('/api/portfolio', formData, {
-          ...getAuthHeaders(),
-          headers: {
-            ...getAuthHeaders().headers,
-            'Content-Type': 'multipart/form-data',
-          },
+          headers: { 'Content-Type': 'multipart/form-data' }
         });
       }
       fetchPortfolios();
@@ -184,7 +175,7 @@ const Admin = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
-      await axios.delete(`/api/portfolio/${id}`, getAuthHeaders());
+      await axios.delete(`/api/portfolio/${id}`);
       fetchPortfolios();
     } catch (error) {
       console.error('Error deleting project:', error);
@@ -219,32 +210,32 @@ const Admin = () => {
         </form>
       </section>
 
-      <section className="projects-section">
-        <h2>Existing Projects</h2>
-        <div className="portfolio-list">
-          {portfolios.length > 0 ? (
-            portfolios.map((p) => (
-              <article key={p._id} className="portfolio-card">
-                <h4>{p.projectName}</h4>
-                <p>{p.description}</p>
-                <p><strong>Technologies:</strong> {p.technologies?.join(', ')}</p>
-                <div className="link-group">
-                  {p.githubLink && <a href={p.githubLink} target="_blank" rel="noreferrer" className="link">GitHub</a>}
-                  {p.liveDemoLink && <a href={p.liveDemoLink} target="_blank" rel="noreferrer" className="link">Live Demo</a>}
-                </div>
-                <div className="btn-group">
-                  <button onClick={() => handleEdit(p)} className="btn-edit">Edit</button>
-                  <button onClick={() => handleDelete(p._id)} className="btn-delete">Delete</button>
-                </div>
-              </article>
-            ))
-          ) : (
-            <p>No projects found.</p>
-          )}
-        </div>
-      </section>
-    </div>
-  );
+<section className="projects-section">
+  <h2>Existing Projects</h2>
+  <div className="portfolio-list">
+    {portfolios.length > 0 ? (
+      portfolios.map((p) => (
+        <article key={p._id} className="portfolio-card">
+          <h4>{p.projectName}</h4>
+          <p>{p.description}</p>
+          <p><strong>Technologies:</strong> {p.technologies?.join(', ')}</p>
+          <div className="link-group">
+            {p.githubLink && <a href={p.githubLink} target="_blank" rel="noreferrer" className="link">GitHub</a>}
+            {p.liveDemoLink && <a href={p.liveDemoLink} target="_blank" rel="noreferrer" className="link">Live Demo</a>}
+          </div>
+          <div className="btn-group">
+            <button onClick={() => handleEdit(p)} className="btn-edit">Edit</button>
+            <button onClick={() => handleDelete(p._id)} className="btn-delete">Delete</button>
+          </div>
+        </article>
+      ))
+    ) : (
+      <p>No projects found.</p>
+    )}
+  </div>
+</section>
+</div>
+);
 };
 
 export default Admin;
