@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const UserPortfolio = require('../models/Portfolio');
+const UserPortfolio = require('../models/UserPortfolio');
 const { isAdmin } = require('../middleware/authMiddleware');
 
 // User submits portfolio
@@ -27,19 +27,27 @@ router.post('/', async (req, res) => {
 
 // Admin - fetch all user portfolios
 router.get('/', isAdmin, async (req, res) => {
-  const portfolios = await UserPortfolio.find();
-  res.json(portfolios);
+  try {
+    const portfolios = await UserPortfolio.find();
+    res.json(portfolios);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // Admin - delete a user portfolio
 router.delete('/:id', isAdmin, async (req, res) => {
-  const portfolio = await UserPortfolio.findById(req.params.id);
+  try {
+    const portfolio = await UserPortfolio.findById(req.params.id);
 
-  if (portfolio) {
-    await portfolio.remove();
-    res.json({ message: 'Portfolio deleted' });
-  } else {
-    res.status(404).json({ message: 'Portfolio not found' });
+    if (portfolio) {
+      await UserPortfolio.findByIdAndDelete(req.params.id);
+      res.json({ message: 'Portfolio deleted' });
+    } else {
+      res.status(404).json({ message: 'Portfolio not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
