@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import '../styles/Admin.css';
+import AuthModal from '../components/AuthModal';
 
 // Default hardcoded projects (mapped to match database fields)
 const defaultProjects = [
@@ -87,7 +87,9 @@ const defaultProjects = [
   // }
 ];
 
+
 const Admin = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [portfolios, setPortfolios] = useState([]);
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
@@ -96,10 +98,18 @@ const Admin = () => {
   const [liveDemoLink, setLiveDemoLink] = useState('');
   const [image, setImage] = useState(null);
   const [editingId, setEditingId] = useState(null);
-  
+
   useEffect(() => {
-    fetchPortfolios();
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsAuthenticated(isLoggedIn);
   }, []);
+  
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchPortfolios();
+    }
+  }, [isAuthenticated]);
 
   const fetchPortfolios = async () => {
     try {
@@ -182,8 +192,20 @@ const Admin = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsAuthenticated(false);
+  };
+  
+
+  if (!isAuthenticated) {
+    return <AuthModal onLogin={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <div className="admin-dashboard">
+      <button onClick={handleLogout} style={{ float: 'right', margin: '1rem', padding: '0.5rem 1rem' }}>Logout</button>
+      
       <section className="form-section">
         <h2>{editingId ? 'Update Project' : 'Upload New Project'}</h2>
         <form onSubmit={handleSubmit} className="login-form" encType="multipart/form-data">
@@ -210,32 +232,32 @@ const Admin = () => {
         </form>
       </section>
 
-<section className="projects-section">
-  <h2>Existing Projects</h2>
-  <div className="portfolio-list">
-    {portfolios.length > 0 ? (
-      portfolios.map((p) => (
-        <article key={p._id} className="portfolio-card">
-          <h4>{p.projectName}</h4>
-          <p>{p.description}</p>
-          <p><strong>Technologies:</strong> {p.technologies?.join(', ')}</p>
-          <div className="link-group">
-            {p.githubLink && <a href={p.githubLink} target="_blank" rel="noreferrer" className="link">GitHub</a>}
-            {p.liveDemoLink && <a href={p.liveDemoLink} target="_blank" rel="noreferrer" className="link">Live Demo</a>}
-          </div>
-          <div className="btn-group">
-            <button onClick={() => handleEdit(p)} className="btn-edit">Edit</button>
-            <button onClick={() => handleDelete(p._id)} className="btn-delete">Delete</button>
-          </div>
-        </article>
-      ))
-    ) : (
-      <p>No projects found.</p>
-    )}
-  </div>
-</section>
-</div>
-);
+      <section className="projects-section">
+        <h2>Existing Projects</h2>
+        <div className="portfolio-list">
+          {portfolios.length > 0 ? (
+            portfolios.map((p) => (
+              <article key={p._id} className="portfolio-card">
+                <h4>{p.projectName}</h4>
+                <p>{p.description}</p>
+                <p><strong>Technologies:</strong> {p.technologies?.join(', ')}</p>
+                <div className="link-group">
+                  {p.githubLink && <a href={p.githubLink} target="_blank" rel="noreferrer" className="link">GitHub</a>}
+                  {p.liveDemoLink && <a href={p.liveDemoLink} target="_blank" rel="noreferrer" className="link">Live Demo</a>}
+                </div>
+                <div className="btn-group">
+                  <button onClick={() => handleEdit(p)} className="btn-edit">Edit</button>
+                  <button onClick={() => handleDelete(p._id)} className="btn-delete">Delete</button>
+                </div>
+              </article>
+            ))
+          ) : (
+            <p>No projects found.</p>
+          )}
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Admin;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../styles/Header.css'; // ✅ Regular CSS import
 import logo from '../assets/logo.png';
 import AboutUsPanel from './AboutUsPanel';
-import Admin from '../pages/Admin';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
