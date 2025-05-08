@@ -138,6 +138,7 @@ const Admin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted");
     const formData = new FormData();
     formData.append('projectName', projectName);
     formData.append('description', description);

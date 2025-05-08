@@ -5,9 +5,11 @@ const hireUsRoutes = require('./routes/hireUsRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const userPortfolioRoutes = require('./routes/userPortfolioRoutes');
 const adminAuthRoutes = require('./routes/adminAuthRoutes');
+const applyMiddleware = require('./middleware');
+const mongoose = require('mongoose');
 const path = require('path');
 
-dotenv.config(); // Load env variables
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,12 +28,6 @@ app.use('/api/admin', adminAuthRoutes);
 app.get('/', (req, res) => {
   res.send('Welcome to the TechTwirl Combined API (Portfolio, UserPortfolios, HireUs, ContactUs)');
 });
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
-
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/techtwirl';
