@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { isAdmin } = require('../middleware/middleware');
+const { isAdmin } = require('../middleware/authMiddleware');
 const {
   getAllPortfolios,
   getPortfolioById,
@@ -22,6 +22,5 @@ router.get('/:id', getPortfolioById);
 router.post('/', isAdmin, upload.single('image'), createPortfolio);
 router.put('/:id', isAdmin, upload.single('image'), updatePortfolio);
 router.delete('/:id', isAdmin, deletePortfolio);
-
 
 module.exports = router;
