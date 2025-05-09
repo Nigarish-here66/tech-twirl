@@ -25,7 +25,7 @@ app.use('http://localhost:5000/api/portfolio', portfolioRoutes);
 
 app.get('/', (req, res) => res.send('TechTwirl API Root'));
 
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/TechTwirl')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/techtwirl')
   .then(() => {
     console.log('MongoDB connected');
     app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
