@@ -87,6 +87,7 @@ const Portfolio = () => {
                 <ProjectCard
                   key={project._id}
                   project={{
+                    id: project._id,
                     title: project.projectName,
                     description: project.description,
                     technologies: project.technologies || [],
