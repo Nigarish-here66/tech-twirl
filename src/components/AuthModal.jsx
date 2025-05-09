@@ -9,11 +9,19 @@ const AuthModal = ({ onLogin }) => {
     e.preventDefault();
     if (!username || !password) return;
 
+    const storedUser = JSON.parse(localStorage.getItem('authUser'));
+
     if (isRegistering) {
+      if (storedUser) {
+        alert('Admin account already exists. Please log in.');
+        setIsRegistering(false);
+        return;
+      }
+
       localStorage.setItem('authUser', JSON.stringify({ username, password }));
-      alert('Registered successfully!');
+      alert('Admin account created successfully!');
+      setIsRegistering(false);
     } else {
-      const storedUser = JSON.parse(localStorage.getItem('authUser'));
       if (storedUser?.username === username && storedUser?.password === password) {
         localStorage.setItem('isLoggedIn', 'true');
         onLogin();
@@ -26,7 +34,7 @@ const AuthModal = ({ onLogin }) => {
   return (
     <div style={styles.modalBackdrop}>
       <form onSubmit={handleAuth} style={styles.formContainer}>
-        <h2 style={styles.title}>{isRegistering ? 'Create Account' : 'Login'}</h2>
+        <h2 style={styles.title}>{isRegistering ? 'Create Admin Account' : 'Login'}</h2>
         <input
           type="text"
           placeholder="User Name"
@@ -46,8 +54,13 @@ const AuthModal = ({ onLogin }) => {
         <button type="submit" style={styles.button}>
           {isRegistering ? 'Register' : 'Login'}
         </button>
-        <p style={styles.toggleText} onClick={() => setIsRegistering(!isRegistering)}>
-          {isRegistering ? 'Already have an account? Login' : 'Create a new account'}
+        <p
+          style={styles.toggleText}
+          onClick={() => setIsRegistering(!isRegistering)}
+        >
+          {isRegistering
+            ? 'Already have an account? Login'
+            : 'Create a new admin account'}
         </p>
       </form>
     </div>
