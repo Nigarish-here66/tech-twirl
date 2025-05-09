@@ -21,7 +21,7 @@ if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
-app.use('/api/portfolios', portfolioRoutes);
+app.use('/api/portfolio', portfolioRoutes);
 
 app.get('/', (req, res) => res.send('TechTwirl API Root'));
 
