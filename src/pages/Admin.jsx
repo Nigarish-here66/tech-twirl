@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import '../styles/Admin.css';
 import AuthModal from '../components/AuthModal';
@@ -88,6 +88,7 @@ const defaultProjects = [
 ];
 
 
+
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [portfolios, setPortfolios] = useState([]);
@@ -103,15 +104,18 @@ const Admin = () => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     setIsAuthenticated(isLoggedIn);
   }, []);
-  
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      fetchPortfolios();
+  const preloadDefaultProjects = async () => {
+    try {
+      for (const project of defaultProjects) {
+        await axios.post('/api/portfolio', project);
+      }
+    } catch (error) {
+      console.error('Error preloading default projects:', error);
     }
-  }, [isAuthenticated]);
+  };
 
-  const fetchPortfolios = async () => {
+  const fetchPortfolios = useCallback(async () => {
     try {
       const { data } = await axios.get('/api/portfolio');
       if (data.length === 0) {
@@ -124,21 +128,16 @@ const Admin = () => {
     } catch (error) {
       console.error('Error fetching portfolios:', error);
     }
-  };
+  }, []);
 
-  const preloadDefaultProjects = async () => {
-    try {
-      for (const project of defaultProjects) {
-        await axios.post('/api/portfolio', project);
-      }
-    } catch (error) {
-      console.error('Error preloading default projects:', error);
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchPortfolios();
     }
-  };
+  }, [isAuthenticated, fetchPortfolios]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted");
     const formData = new FormData();
     formData.append('projectName', projectName);
     formData.append('description', description);
@@ -148,16 +147,27 @@ const Admin = () => {
     if (image) formData.append('image', image);
 
     try {
+      let response;
       if (editingId) {
-        await axios.put(`/api/portfolio/${editingId}`, formData, {
+        response = await axios.put(`/api/portfolio/${editingId}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       } else {
-        await axios.post('/api/portfolio', formData, {
+        response = await axios.post('/api/portfolio', formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       }
-      fetchPortfolios();
+
+      const savedProject = response.data;
+
+      setPortfolios((prev) => {
+        if (editingId) {
+          return prev.map((p) => (p._id === editingId ? savedProject : p));
+        } else {
+          return [savedProject, ...prev];
+        }
+      });
+
       resetForm();
     } catch (error) {
       console.error('Error submitting project:', error);
@@ -197,7 +207,6 @@ const Admin = () => {
     localStorage.removeItem('isLoggedIn');
     setIsAuthenticated(false);
   };
-  
 
   if (!isAuthenticated) {
     return <AuthModal onLogin={() => setIsAuthenticated(true)} />;
@@ -206,7 +215,7 @@ const Admin = () => {
   return (
     <div className="admin-dashboard">
       <button onClick={handleLogout} style={{ float: 'right', margin: '1rem', padding: '0.5rem 1rem' }}>Logout</button>
-      
+
       <section className="form-section">
         <h2>{editingId ? 'Update Project' : 'Upload New Project'}</h2>
         <form onSubmit={handleSubmit} className="login-form" encType="multipart/form-data">
@@ -262,3 +271,4 @@ const Admin = () => {
 };
 
 export default Admin;
+
