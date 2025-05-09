@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
 import axios from 'axios';
-import styles from '../styles/Portfolio.css';
-
 import HeroSection from '../components/HeroSection';
 import StatSection from '../components/StatSection';
 import ProjectCard from '../components/ProjectCard';
+import '../styles/Portfolio.css';
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
@@ -22,13 +21,12 @@ const Portfolio = () => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
-
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const fetchProjects = async () => {
     try {
-      const { data } = await axios.get('/api/portfolio');
+      const { data } = await axios.get('/api/portfolios');
       setProjects(data);
     } catch (error) {
       console.error('Error fetching portfolio projects:', error);
@@ -45,34 +43,18 @@ const Portfolio = () => {
 
   return (
     <div>
-      {/* Hero Section */}
       <HeroSection />
-
       <div className="container">
-        {/* Custom Mouse Cursor */}
         <motion.div
           className="cursor"
           variants={{
-            default: {
-              x: mousePosition.x - 16,
-              y: mousePosition.y - 16,
-              scale: 1
-            },
-            hover: {
-              x: mousePosition.x - 16,
-              y: mousePosition.y - 16,
-              scale: 1.5,
-              backgroundColor: "#28569a"
-            }
+            default: { x: mousePosition.x - 16, y: mousePosition.y - 16, scale: 1 },
+            hover: { x: mousePosition.x - 16, y: mousePosition.y - 16, scale: 1.5, backgroundColor: "#28569a" }
           }}
           animate={cursorVariant}
           transition={{ type: "tween", ease: "backOut" }}
         />
-
-        {/* Stats Section */}
         <StatSection />
-
-        {/* Controls: Search + Filter */}
         <div className="controlsSection">
           <div className="searchBox">
             <Search className="searchIcon" />
@@ -98,8 +80,6 @@ const Portfolio = () => {
             ))}
           </div>
         </div>
-
-        {/* Projects Grid */}
         <motion.div className="projectsGrid" layout>
           <AnimatePresence>
             {filteredProjects.length > 0 ? (

@@ -7,6 +7,7 @@ const portfolioSchema = new mongoose.Schema({
   githubLink: { type: String },
   liveDemoLink: { type: String },
   imageUrl: { type: String },
+  category: { type: String } 
 }, { timestamps: true });
 
 module.exports = mongoose.model('Portfolio', portfolioSchema);
