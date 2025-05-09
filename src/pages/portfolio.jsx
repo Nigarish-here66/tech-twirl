@@ -26,7 +26,7 @@ const Portfolio = () => {
 
   const fetchProjects = async () => {
     try {
-      const { data } = await axios.get('/api/portfolios');
+      const { data } = await axios.get('http://localhost:5000/api/portfolio');
       setProjects(data);
     } catch (error) {
       console.error('Error fetching portfolio projects:', error);
