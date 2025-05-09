@@ -4,7 +4,7 @@ import '../styles/Admin.css';
 import AuthModal from '../components/AuthModal';
 
 // Default hardcoded projects (mapped to match database fields)
-const defaultProjects = [
+// const defaultProjects = [
   // {
   //   projectName: "AI-Powered Analytics Dashboard",
   //   description: "Real-time data visualization platform with machine learning insights",
@@ -85,7 +85,7 @@ const defaultProjects = [
   //   color: "#28569a",
   //   imageUrl: "https://cdn.wedevs.com/uploads/2021/04/Best-project-management-software-for-web-designers.png"
   // }
-];
+// ];
 
 
 
@@ -105,26 +105,10 @@ const Admin = () => {
     setIsAuthenticated(isLoggedIn);
   }, []);
 
-  const preloadDefaultProjects = async () => {
-    try {
-      for (const project of defaultProjects) {
-        await axios.post('/api/portfolio', project);
-      }
-    } catch (error) {
-      console.error('Error preloading default projects:', error);
-    }
-  };
-
   const fetchPortfolios = useCallback(async () => {
     try {
       const { data } = await axios.get('/api/portfolio');
-      if (data.length === 0) {
-        await preloadDefaultProjects();
-        const updatedData = await axios.get('/api/portfolio');
-        setPortfolios(updatedData.data);
-      } else {
-        setPortfolios(data);
-      }
+      setPortfolios(data);
     } catch (error) {
       console.error('Error fetching portfolios:', error);
     }
@@ -147,27 +131,16 @@ const Admin = () => {
     if (image) formData.append('image', image);
 
     try {
-      let response;
       if (editingId) {
-        response = await axios.put(`/api/portfolio/${editingId}`, formData, {
+        await axios.put(`/api/portfolio/${editingId}`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       } else {
-        response = await axios.post('/api/portfolio', formData, {
+        await axios.post('/api/portfolio', formData, {
           headers: { 'Content-Type': 'multipart/form-data' }
         });
       }
-
-      const savedProject = response.data;
-
-      setPortfolios((prev) => {
-        if (editingId) {
-          return prev.map((p) => (p._id === editingId ? savedProject : p));
-        } else {
-          return [savedProject, ...prev];
-        }
-      });
-
+      fetchPortfolios();
       resetForm();
     } catch (error) {
       console.error('Error submitting project:', error);
@@ -271,4 +244,5 @@ const Admin = () => {
 };
 
 export default Admin;
+
 
