@@ -5,6 +5,7 @@ const fs = require('fs');
 const dotenv = require('dotenv');
 const applyMiddleware = require('./middleware/middleware');
 const portfolioRoutes = require('./routes/portfolioRoutes');
+const hireusRoutes = require('./routes/hireUsRoutes');
 
 dotenv.config();
 const app = express();
@@ -17,7 +18,7 @@ applyMiddleware(app);
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 
-
+app.use('/api/hireus', hireusRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
