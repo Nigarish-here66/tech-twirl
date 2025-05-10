@@ -1,7 +1,8 @@
+// src/components/ProjectCard.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import styles from '../styles/Portfolio.css';
+import '../styles/Portfolio.css';
 
 const ProjectCard = ({ project, setCursorVariant }) => {
   const projectVariants = {
@@ -23,11 +24,8 @@ const ProjectCard = ({ project, setCursorVariant }) => {
     }
   };
 
- 
-
   return (
     <motion.div
-      key={project.id}
       layoutId={project.id.toString()}
       variants={projectVariants}
       initial="hidden"
@@ -42,36 +40,47 @@ const ProjectCard = ({ project, setCursorVariant }) => {
     >
       <div className="projectImageContainer">
         <img 
-          src={project.imageUrl } 
+          src={project.imageUrl} 
           alt={project.title} 
           className="projectImage"
+          onError={(e) => {
+            e.target.src = "https://via.placeholder.com/400x300?text=Image+Not+Found";
+          }}
         />
       </div>
       <div className="projectContent">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
-        <div className={"techStack"}>
-          {project.technologies.map(tech => (
-            <span key={tech} className={"techTag"}>
+        <div className="techStack">
+          {project.technologies && project.technologies.map(tech => (
+            <span key={tech} className="techTag">
               {tech}
             </span>
           ))}
         </div>
         <div className="projectLinks">
-          <motion.a 
-            href={project.demoLink}
-            whileHover={{ scale: 1.1 }}
-            className={"demoLink"}
-          >
-            <ExternalLink size={20} /> Live Demo
-          </motion.a>
-          <motion.a 
-            href={project.sourceLink}
-            whileHover={{ scale: 1.1 }}
-            className={"sourceLink"}
-          >
-            <Github size={20} /> Source
-          </motion.a>
+          {project.demoLink && project.demoLink !== '#' && (
+            <motion.a 
+              href={project.demoLink}
+              whileHover={{ scale: 1.1 }}
+              className="demoLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={20} /> Live Demo
+            </motion.a>
+          )}
+          {project.sourceLink && project.sourceLink !== '#' && (
+            <motion.a 
+              href={project.sourceLink}
+              whileHover={{ scale: 1.1 }}
+              className="sourceLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={20} /> Source
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>
