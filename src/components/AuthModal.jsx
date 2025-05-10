@@ -1,43 +1,40 @@
+// src/components/AuthModal.jsx
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const AuthModal = ({ onLogin }) => {
-  const [isRegistering, setIsRegistering] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleAuth = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (!username || !password) return;
 
-    const storedUser = JSON.parse(localStorage.getItem('authUser'));
-
-    if (isRegistering) {
-      if (storedUser) {
-        alert('Admin account already exists. Please log in.');
-        setIsRegistering(false);
-        return;
-      }
-
-      localStorage.setItem('authUser', JSON.stringify({ username, password }));
-      alert('Admin account created successfully!');
-      setIsRegistering(false);
-    } else {
-      if (storedUser?.username === username && storedUser?.password === password) {
+    try {
+      const response = await axios.post('http://localhost:5000/api/admin/login', {
+        username,
+        password
+      });
+      
+      if (response.data.success) {
         localStorage.setItem('isLoggedIn', 'true');
         onLogin();
-      } else {
-        alert('Invalid credentials');
       }
+    } catch (error) {
+      setError('Invalid credentials. Please try again.');
+      console.error('Login error:', error);
     }
   };
 
   return (
     <div style={styles.modalBackdrop}>
-      <form onSubmit={handleAuth} style={styles.formContainer}>
-        <h2 style={styles.title}>{isRegistering ? 'Create Admin Account' : 'Login'}</h2>
+      <form onSubmit={handleLogin} style={styles.formContainer}>
+        <h2 style={styles.title}>Admin Login</h2>
+        {error && <p style={styles.errorText}>{error}</p>}
         <input
           type="text"
-          placeholder="User Name"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
@@ -52,16 +49,8 @@ const AuthModal = ({ onLogin }) => {
           style={styles.input}
         />
         <button type="submit" style={styles.button}>
-          {isRegistering ? 'Register' : 'Login'}
+          Login
         </button>
-        <p
-          style={styles.toggleText}
-          onClick={() => setIsRegistering(!isRegistering)}
-        >
-          {isRegistering
-            ? 'Already have an account? Login'
-            : 'Create a new admin account'}
-        </p>
       </form>
     </div>
   );
@@ -113,13 +102,11 @@ const styles = {
     fontSize: '16px',
     cursor: 'pointer',
   },
-  toggleText: {
-    marginTop: '10px',
-    color: '#0066cc',
+  errorText: {
+    color: '#e53e3e',
     fontSize: '14px',
-    cursor: 'pointer',
-    textDecoration: 'underline',
-  },
+    margin: '0',
+  }
 };
 
 export default AuthModal;
