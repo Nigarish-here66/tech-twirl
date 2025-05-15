@@ -8,10 +8,12 @@ import Team from './pages/team';
 import Portfolio from './pages/portfolio';
 import Services from './pages/services';
 import Admin from './pages/Admin';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
