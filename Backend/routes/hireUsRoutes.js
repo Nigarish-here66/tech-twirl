@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const HireUs = require('../models/HireUs');
 
-// CREATE
+// ===========================
+// CREATE a new hire request
+// ===========================
 router.post('/', async (req, res) => {
   try {
     const hireRequest = new HireUs(req.body);
@@ -13,10 +15,13 @@ router.post('/', async (req, res) => {
   }
 });
 
-// READ
+// ===========================
+// READ all hire requests
+// ===========================
 router.get('/', async (req, res) => {
   try {
     const requests = await HireUs.find();
+
     res.json(requests);
   } catch (err) {
     res.status(500).json({ error: err.message });

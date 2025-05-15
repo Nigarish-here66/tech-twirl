@@ -1,4 +1,4 @@
-// controllers/portfolioController.js
+// Import the Portfolio model
 const Portfolio = require('../models/Portfolio');
 
 // Get all portfolios
@@ -11,7 +11,7 @@ exports.getAllPortfolios = async (req, res) => {
   }
 };
 
-// Get single portfolio
+// Get single portfolio by ID
 exports.getPortfolioById = async (req, res) => {
   try {
     const portfolio = await Portfolio.findById(req.params.id);
@@ -22,12 +22,11 @@ exports.getPortfolioById = async (req, res) => {
   }
 };
 
-// Create portfolio
+// Create a new portfolio
 exports.createPortfolio = async (req, res) => {
   try {
     const { projectName, description, technologies, githubLink, liveDemoLink } = req.body;
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
-
     const portfolio = new Portfolio({
       projectName,
       description,
@@ -37,6 +36,7 @@ exports.createPortfolio = async (req, res) => {
       imageUrl,
     });
 
+    // Save the new portfolio to the database
     const created = await portfolio.save();
     res.status(201).json(created);
   } catch (err) {
@@ -44,7 +44,7 @@ exports.createPortfolio = async (req, res) => {
   }
 };
 
-// Update portfolio
+// Update an existing portfolio by ID
 exports.updatePortfolio = async (req, res) => {
   try {
     const portfolio = await Portfolio.findById(req.params.id);
@@ -55,8 +55,8 @@ exports.updatePortfolio = async (req, res) => {
     portfolio.technologies = req.body.technologies?.split(',').map(t => t.trim()) || portfolio.technologies;
     portfolio.githubLink = req.body.githubLink || portfolio.githubLink;
     portfolio.liveDemoLink = req.body.liveDemoLink || portfolio.liveDemoLink;
-    if (req.file) portfolio.imageUrl = `/uploads/${req.file.filename}`;
 
+    if (req.file) portfolio.imageUrl = `/uploads/${req.file.filename}`;
     const updated = await portfolio.save();
     res.json(updated);
   } catch (err) {
@@ -64,12 +64,11 @@ exports.updatePortfolio = async (req, res) => {
   }
 };
 
-// Delete portfolio
+// Delete a portfolio by ID
 exports.deletePortfolio = async (req, res) => {
   try {
     const portfolio = await Portfolio.findById(req.params.id);
     if (!portfolio) return res.status(404).json({ message: 'Portfolio not found' });
-
     await Portfolio.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted successfully' });
   } catch (err) {

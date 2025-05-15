@@ -1,44 +1,58 @@
-// api.js
 import axios from 'axios';
 
+// Set the base URL for the API, using an environment variable or defaulting to localhost
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
+// Create an axios instance with default config
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: API_URL, 
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json', 
   }
 });
 
-// Add request interceptor to include admin credentials in authenticated requests
+// ==========================================
+// Axios Request Interceptor
+// Automatically attaches admin credentials from localStorage to every request
+// ==========================================
 api.interceptors.request.use(
   (config) => {
-    // Check if the user is logged in
+
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     
     if (isLoggedIn) {
-      // Add admin credentials to the headers
       config.headers['admin-username'] = localStorage.getItem('adminUser');
       config.headers['admin-password'] = localStorage.getItem('adminPass');
     }
-    
-    return config;
+
+    return config; 
   },
   (error) => {
     return Promise.reject(error);
   }
 );
 
-// Example API functions
+// ==========================================
+// API Function Definitions
+// These wrap HTTP requests for use throughout the frontend
+// ==========================================
+
+// Portfolio API
 export const fetchPortfolios = () => api.get('/portfolios');
-export const createPortfolio = (portfolioData) => api.post('/portfolios', portfolioData);
-export const updatePortfolio = (id, portfolioData) => api.put(`/portfolios/${id}`, portfolioData);
-export const deletePortfolio = (id) => api.delete(`/portfolios/${id}`);
+export const createPortfolio = (portfolioData) => api.post('/portfolios', portfolioData); 
+export const updatePortfolio = (id, portfolioData) => api.put(`/portfolios/${id}`, portfolioData); 
+export const deletePortfolio = (id) => api.delete(`/portfolios/${id}`); 
 
-export const fetchHireRequests = () => api.get('/hireus');
-export const fetchContacts = () => api.get('/contact');
-export const fetchUserPortfolios = () => api.get('/userportfolios');
+// Hire Us API
+export const fetchHireRequests = () => api.get('/hireus'); 
 
-export const login = (credentials) => api.post('/admin/login', credentials);
+// Contact API
+export const fetchContacts = () => api.get('/contact'); 
+
+// User-submitted portfolios
+export const fetchUserPortfolios = () => api.get('/userportfolios'); 
+
+// Admin login
+export const login = (credentials) => api.post('/admin/login', credentials); 
 
 export default api;
