@@ -7,9 +7,12 @@ import SoftwareCompany from './SoftwareCompany';
 import SoftwareCompany1 from './SoftwareCompany1';
 import Stats from './Stats';
 
+// Functional component for the homepage
 const Homepage = () => {
   return (
+   
     <div className="App">
+      
       <HeroSection />
       <AboutSection />
       <OurServices />
@@ -18,10 +21,9 @@ const Homepage = () => {
       <Stats /> 
       <SoftwareCompany />
       <SoftwareCompany1 />
-     
       
     </div>
   );
 };
 
-export default Homepage;
+export default Homepage; 

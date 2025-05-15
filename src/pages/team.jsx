@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '../styles/Teams.module.css';
-
 import TeamsHeroSection from '../components/TeamsHeroSection';
 import TeamMember from '../components/TeamMember';
 import Testimonals from '../components/Testimonals';
@@ -9,25 +8,46 @@ import CommitmentImage from '../assets/commitment.jpg';
 const Teams = () => {
     return (
         <div>
+            {/* Hero Section - Introductory visual/banner for Teams page */}
             <TeamsHeroSection />
+
+            {/* Main content container */}
             <div className={styles.container}>
+
+                {/* About Us Section */}
                 <div className={styles.aboutUsSection}>
                     <h2 className={styles.aboutTitle}>About us</h2>
                     <p className={styles.aboutDescription}>
-                        Tech Twirl is known as the well-established software house in Pakistan. We started our journey on September 2015 with an ambition to provide best-quality web services in Pakistan and develop a trustworthy strategic relationship. Due to new inventions in technology, all barriers of communication are eliminated and the world has become a global village. Many countries started outsourcing their IT departments to developing nations for making it cheaper and reliable for them due the higher currency rates. Tech Twirl is well respected and considered as the top-ranked software house in Pakistan. <br /><br />
-                        <span className={styles.highlight}> Tech Twirl software house</span> was established in 2015 in Pakistan. With the extension of work, Tech Twirl got registered in 2017 (PSEB). Tech Twirl software house is providing a wide range of services including website development, web designing, mobile apps development, search engine optimization (SEO), digital marketing including social media marketing (SMM) and much more.
+                        Tech Twirl is known as the well-established software house in Pakistan. We started our journey on September 2015
+                        with an ambition to provide best-quality web services in Pakistan and develop a trustworthy strategic relationship.
+                        Due to new inventions in technology, all barriers of communication are eliminated and the world has become a global
+                        village. Many countries started outsourcing their IT departments to developing nations for making it cheaper and
+                        reliable for them due the higher currency rates. Tech Twirl is well respected and considered as the top-ranked
+                        software house in Pakistan. <br /><br />
+                        <span className={styles.highlight}>Tech Twirl software house</span> was established in 2015 in Pakistan. With the
+                        extension of work, Tech Twirl got registered in 2017 (PSEB). Tech Twirl software house is providing a wide range
+                        of services including website development, web designing, mobile apps development, search engine optimization (SEO),
+                        digital marketing including social media marketing (SMM) and much more.
                     </p>
-                    </div>
+                </div>
+
+                {/* Team Member Cards Section */}
                 <TeamMember />
+
+                {/* Commitment to Excellence Section */}
                 <section className={styles.commitmentSection}>
                     <div className={styles.commitmentContent}>
+
+                        {/* Image of the team or office */}
                         <div className={styles.commitmentImage}>
                             <img src={CommitmentImage} alt="Team Group" />
                         </div>
+
+                        {/* Text content explaining company values */}
                         <div className={styles.commitmentText}>
-                        <h2>Our Commitment To Excellence</h2>
+                            <h2>Our Commitment To Excellence</h2>
                             <div className={styles.teamsAnimatedUnderline}>
-                            <div className={styles.teamsUnderlineDot}></div>
+                                <div className={styles.teamsUnderlineDot}></div>
                             </div>
                             <p>
                                 At Tech Twirl Technologies, our success is driven by the exceptional talent and dedication of our team members.
@@ -46,6 +66,8 @@ const Teams = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* Testimonials Section from clients or partners */}
                 <Testimonals />
             </div>
         </div>

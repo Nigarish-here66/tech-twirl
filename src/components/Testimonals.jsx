@@ -1,18 +1,23 @@
 import React from "react";
-import styles from "../styles/Teams.module.css";
-import { useNavigate } from "react-router-dom";
-import google from "../assets/google.png";
+import styles from "../styles/Teams.module.css"; 
+import { useNavigate } from "react-router-dom"; 
+import google from "../assets/google.png"; 
 import clutch from "../assets/clutch.png";
 import trustpilot from "../assets/trustpilot.png";
 import shopify from "../assets/shopify.png";
 import manifest from "../assets/manifest.png";
 
+// Testimonials component
 const Testimonials = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   return (
     <div className={styles.testimonialsContainer}>
+      
+     
       <div className={styles.logoRow}>
+
+        {/* Each image is a link to a partner or review site */}
         <a href="https://clutch.co/profile/elexoft-technologies" target="_blank" rel="noopener noreferrer">
           <img src={clutch} alt="Clutch" />
         </a>
@@ -34,16 +39,20 @@ const Testimonials = () => {
         </a>
       </div>
 
+      {/* Navigation buttons */}
       <div className={styles.buttons}>
         <button onClick={() => navigate("/Team")}>Read Testimonials</button>
         <button onClick={() => navigate("/Portfolio")}>View Case Study</button>
       </div>
 
+      {/* Featured review card */}
       <div className={styles.reviewCard}>
         <h3>Tech Twirl Technologies Reviews</h3>
         <p><strong>5.0 ★★★★★</strong> — 6 reviews</p>
 
         <div className={styles.reviewContent}>
+         
+          {/* Project info */}
           <div className={styles.project}>
             <h4>SaaS Development for Fitness Gym</h4>
             <p>💼 Web Development, Accounting Services</p>
@@ -51,14 +60,18 @@ const Testimonials = () => {
             <p>📅 Jan. 2020 - Mar. 2021</p>
           </div>
 
+          {/* Client feedback section */}
           <div className={styles.feedback}>
             <blockquote>
               “We are very happy to work with Tech Twirl as they have provided us their quality of work.”
             </blockquote>
-            <p><strong>Feedback summary:</strong> Tech Twirl Technologies finished the work within their designated timeline... </p>
-            <button onClick={() => navigate("/Portfolio")} className={styles.readMore}>Read Full Review →</button>
+            <p><strong>Feedback summary:</strong> Tech Twirl Technologies finished the work within their designated timeline...</p>
+            <button onClick={() => navigate("/Portfolio")} className={styles.readMore}>
+              Read Full Review →
+            </button>
           </div>
 
+          {/* Reviewer details */}
           <div className={styles.reviewer}>
             <p><strong>CEO of gym25</strong>, Gym25</p>
             <p>📍 Islamabad, Pakistan</p>
@@ -71,4 +84,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Testimonials; 

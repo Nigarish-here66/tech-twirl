@@ -1,12 +1,18 @@
-// src/components/AuthModal.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
+
+/**
+ * AuthModal Component
+ * Props:
+ *  - onLogin (function): callback invoked after successful login
+ */
 
 const AuthModal = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  // Handle login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!username || !password) return;
@@ -16,14 +22,21 @@ const AuthModal = ({ onLogin }) => {
         username,
         password
       });
-      
+
+      // On successful login
       if (response.data.success) {
+        // Store login status and credentials in localStorage (used in request interceptors)
         localStorage.setItem('isLoggedIn', 'true');
-        onLogin();
+        localStorage.setItem('adminUser', username);
+        localStorage.setItem('adminPass', password);
+
+        onLogin(); 
+      } else {
+        setError('Login failed. Invalid credentials.');
       }
     } catch (error) {
-      setError('Invalid credentials. Please try again.');
       console.error('Login error:', error);
+      setError('Invalid credentials. Please try again.');
     }
   };
 
@@ -31,7 +44,10 @@ const AuthModal = ({ onLogin }) => {
     <div style={styles.modalBackdrop}>
       <form onSubmit={handleLogin} style={styles.formContainer}>
         <h2 style={styles.title}>Admin Login</h2>
+
+        {/* Show error if exists */}
         {error && <p style={styles.errorText}>{error}</p>}
+
         <input
           type="text"
           placeholder="Username"
@@ -40,6 +56,7 @@ const AuthModal = ({ onLogin }) => {
           required
           style={styles.input}
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -48,6 +65,7 @@ const AuthModal = ({ onLogin }) => {
           required
           style={styles.input}
         />
+
         <button type="submit" style={styles.button}>
           Login
         </button>
@@ -56,6 +74,7 @@ const AuthModal = ({ onLogin }) => {
   );
 };
 
+// Inline styles for modal and form
 const styles = {
   modalBackdrop: {
     position: 'fixed',
@@ -106,7 +125,7 @@ const styles = {
     color: '#e53e3e',
     fontSize: '14px',
     margin: '0',
-  }
+  },
 };
 
 export default AuthModal;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaCheckCircle, FaSmile, FaCogs, FaTrophy } from "react-icons/fa";
-import '../styles/Stats.css';
+import '../styles/Stats.css'; 
 
+// Array of statistical data to be displayed
 const statsData = [
   { icon: <FaCheckCircle />, number: 107, text: "Completed Projects" },
   { icon: <FaSmile />, number: 52, text: "Happy Clients" },
@@ -10,25 +11,28 @@ const statsData = [
 ];
 
 const Stats = () => {
+  // Initialize state for each counter
   const [counts, setCounts] = useState(statsData.map(() => 0));
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const ref = useRef(null); 
+  const [visible, setVisible] = useState(false); 
 
+  // Intersection Observer to trigger animation when section is in viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          setVisible(true); 
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 } 
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) observer.observe(ref.current); 
 
-    return () => observer.disconnect();
+    return () => observer.disconnect(); 
   }, []);
 
+  // Animate counters only once when visible
   useEffect(() => {
     if (visible) {
       statsData.forEach((stat, index) => {
@@ -37,7 +41,7 @@ const Stats = () => {
         const interval = setInterval(() => {
           start += increment;
           if (start >= stat.number) {
-            start = stat.number;
+            start = stat.number; 
             clearInterval(interval);
           }
           setCounts((prev) => {
@@ -52,10 +56,13 @@ const Stats = () => {
 
   return (
     <div className="stats-section">
+      {/* Section heading */}
       <h2>
         We Have Completed <span className="highlight">100+</span> Projects{" "}
         <span className="highlight">Successfully</span>
       </h2>
+
+      {/* Stats grid container */}
       <div className="stats-container" ref={ref}>
         {statsData.map((stat, index) => (
           <div key={index} className="stat-box">
@@ -69,4 +76,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default Stats; 

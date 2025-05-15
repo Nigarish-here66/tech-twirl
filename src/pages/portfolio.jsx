@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
@@ -10,14 +9,16 @@ import StatSection from '../components/StatSection';
 import ProjectCard from '../components/ProjectCard';
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeFilter, setActiveFilter] = useState('all');
+  // State variables
+  const [projects, setProjects] = useState([]); 
+  const [searchQuery, setSearchQuery] = useState(''); 
+  const [activeFilter, setActiveFilter] = useState('all'); 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState('default');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [cursorVariant, setCursorVariant] = useState('default'); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
+  // Fetch projects and track mouse position on component mount
   useEffect(() => {
     fetchProjects();
 
@@ -26,9 +27,11 @@ const Portfolio = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
+    // Clean up mousemove event
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // API call to fetch project data
   const fetchProjects = async () => {
     try {
       setLoading(true);
@@ -42,8 +45,10 @@ const Portfolio = () => {
     }
   };
 
+  // Project categories for filtering
   const categories = ['all', 'web', 'mobile', 'enterprise'];
 
+  // Apply search and filter
   const filteredProjects = projects.filter((project) => {
     const matchesSearch = project.projectName?.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = activeFilter === 'all' || project.category === activeFilter;
@@ -52,11 +57,11 @@ const Portfolio = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Top Hero Banner */}
       <HeroSection />
 
       <div className="container">
-        {/* Custom Mouse Cursor */}
+        {/* Custom Cursor */}
         <motion.div
           className="cursor"
           variants={{
@@ -76,11 +81,12 @@ const Portfolio = () => {
           transition={{ type: "tween", ease: "backOut" }}
         />
 
-        {/* Stats Section */}
+        {/* Statistics Section */}
         <StatSection />
 
-        {/* Controls: Search + Filter */}
+        {/* Search and Filter Controls */}
         <div className="controlsSection">
+          {/* Search Bar */}
           <div className="searchBox">
             <Search className="searchIcon" />
             <input
@@ -91,6 +97,8 @@ const Portfolio = () => {
               className="searchInput"
             />
           </div>
+
+          {/* Category Filter Buttons */}
           <div className="filterContainer">
             {categories.map((category) => (
               <motion.button
@@ -106,7 +114,7 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Project Cards Grid */}
         <motion.div className="projectsGrid" layout>
           {loading ? (
             <p className="loading-message">Loading projects...</p>

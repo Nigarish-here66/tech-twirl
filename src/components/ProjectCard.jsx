@@ -1,12 +1,13 @@
-// src/components/ProjectCard.jsx
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; 
 import { ExternalLink, Github } from 'lucide-react';
-import '../styles/Portfolio.css';
+import '../styles/Portfolio.css'; 
+
 
 const ProjectCard = ({ project, setCursorVariant }) => {
+  // Animation variants for different interaction states
   const projectVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.8 }, 
     visible: { 
       opacity: 1, 
       scale: 1,
@@ -16,7 +17,7 @@ const ProjectCard = ({ project, setCursorVariant }) => {
       }
     },
     hover: {
-      scale: 1.05,
+      scale: 1.05, 
       transition: {
         duration: 0.3,
         ease: "easeInOut"
@@ -26,7 +27,7 @@ const ProjectCard = ({ project, setCursorVariant }) => {
 
   return (
     <motion.div
-      layoutId={project.id.toString()}
+      layoutId={project.id.toString()} 
       variants={projectVariants}
       initial="hidden"
       animate="visible"
@@ -35,9 +36,10 @@ const ProjectCard = ({ project, setCursorVariant }) => {
       style={{
         borderColor: project.color
       }}
-      onMouseEnter={() => setCursorVariant("hover")}
+      onMouseEnter={() => setCursorVariant("hover")} 
       onMouseLeave={() => setCursorVariant("default")}
     >
+      {/* Project image container */}
       <div className="projectImageContainer">
         <img 
           src={project.imageUrl} 
@@ -48,9 +50,13 @@ const ProjectCard = ({ project, setCursorVariant }) => {
           }}
         />
       </div>
+
+      {/* Project content: title, description, tech stack, links */}
       <div className="projectContent">
         <h3>{project.title}</h3>
         <p>{project.description}</p>
+
+        {/* Technology tags */}
         <div className="techStack">
           {project.technologies && project.technologies.map(tech => (
             <span key={tech} className="techTag">
@@ -58,11 +64,13 @@ const ProjectCard = ({ project, setCursorVariant }) => {
             </span>
           ))}
         </div>
+
+        {/* Links to live demo and source code */}
         <div className="projectLinks">
           {project.demoLink && project.demoLink !== '#' && (
             <motion.a 
               href={project.demoLink}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1 }} 
               className="demoLink"
               target="_blank"
               rel="noopener noreferrer"
@@ -87,4 +95,4 @@ const ProjectCard = ({ project, setCursorVariant }) => {
   );
 };
 
-export default ProjectCard;
+export default ProjectCard; 

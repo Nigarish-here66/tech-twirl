@@ -1,10 +1,11 @@
-// src/pages/Admin.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Admin.css';
 import AuthModal from '../components/AuthModal';
 
 const Admin = () => {
+
+  // Authentication and form state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [portfolios, setPortfolios] = useState([]);
   const [projectName, setProjectName] = useState('');
@@ -18,17 +19,20 @@ const Admin = () => {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
 
+  // Check if the user is logged in on initial mount
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     setIsAuthenticated(isLoggedIn);
   }, []);
   
+  // Fetch portfolios only if authenticated
   useEffect(() => {
     if (isAuthenticated) {
       fetchPortfolios();
     }
   }, [isAuthenticated]);
 
+  // Fetch all portfolio projects from the backend
   const fetchPortfolios = async () => {
     try {
       setLoading(true);
@@ -39,14 +43,15 @@ const Admin = () => {
         }
       });
       setPortfolios(data);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching portfolios:', error);
       setError('Failed to fetch projects. Please try again.');
+    } finally {
       setLoading(false);
     }
   };
 
+  // Handle create or update form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -63,6 +68,7 @@ const Admin = () => {
 
     try {
       if (editingId) {
+        // Update existing project
         await axios.put(`http://localhost:5000/api/portfolios/${editingId}`, formData, {
           headers: { 
             'Content-Type': 'multipart/form-data',
@@ -72,6 +78,7 @@ const Admin = () => {
         });
         setSuccessMessage('Project updated successfully!');
       } else {
+        // Create new project
         await axios.post('http://localhost:5000/api/portfolios', formData, {
           headers: { 
             'Content-Type': 'multipart/form-data',
@@ -81,8 +88,8 @@ const Admin = () => {
         });
         setSuccessMessage('Project created successfully!');
       }
-      fetchPortfolios();
-      resetForm();
+      fetchPortfolios(); 
+      resetForm(); 
     } catch (error) {
       console.error('Error submitting project:', error);
       setError('Failed to save project. Please try again.');
@@ -91,6 +98,7 @@ const Admin = () => {
     }
   };
 
+  // Reset form fields
   const resetForm = () => {
     setProjectName('');
     setDescription('');
@@ -101,6 +109,7 @@ const Admin = () => {
     setEditingId(null);
   };
 
+  // Populate form fields for editing an existing project
   const handleEdit = (project) => {
     setProjectName(project.projectName);
     setDescription(project.description);
@@ -109,13 +118,14 @@ const Admin = () => {
     setLiveDemoLink(project.liveDemoLink || '');
     setEditingId(project._id);
     
-    // Scroll to the top of the form
+    // Scroll to form top for better UX
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   };
 
+  // Delete a project with confirmation
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     try {
@@ -136,25 +146,30 @@ const Admin = () => {
     }
   };
 
+  // Handle logout by clearing auth state
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     setIsAuthenticated(false);
   };
   
+  // Handle image file input change
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }
   };
 
+  // Show login modal if not authenticated
   if (!isAuthenticated) {
     return <AuthModal onLogin={() => setIsAuthenticated(true)} />;
   }
 
   return (
     <div className="admin-dashboard">
+      {/* Logout button */}
       <button onClick={handleLogout} style={{ float: 'right', margin: '1rem', padding: '0.5rem 1rem' }}>Logout</button>
       
+      {/* Form for creating/updating projects */}
       <section className="form-section">
         <h2>{editingId ? 'Update Project' : 'Upload New Project'}</h2>
         
@@ -229,6 +244,7 @@ const Admin = () => {
         </form>
       </section>
 
+      {/* Display list of existing projects */}
       <section className="projects-section">
         <h2>Existing Projects</h2>
         {loading && <p className="loading-message">Loading projects...</p>}

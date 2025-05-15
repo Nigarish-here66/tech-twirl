@@ -1,15 +1,17 @@
-import React from "react";
-import '../styles/Footer.css';
-const Footer = () => {
+import React from "react";  
+import '../styles/Footer.css'; 
 
+const Footer = () => {
+  // Define coordinates for embedding Google Maps
   const latitude = 24.8790;
   const longitude = 67.0425;
-  
-  // Google Maps embed URL with your coordinates
+
+  // Construct the Google Maps embed URL dynamically using the coordinates
   const googleMapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.4456187449853!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUyJzQ0LjQiTiA2N8KwMDInMzMuMyJF!5e0!3m2!1sen!2s!4v1597245677269!5m2!1sen!2s`;
 
   return (
     <footer id="footer">
+      {/* Left section: Email subscription */}
       <div className="leftFooter">
         <h4>Get New Updates</h4>
         <div className="subscribe-container">
@@ -19,10 +21,13 @@ const Footer = () => {
         <p>Stay informed with our latest news and exclusive content.</p>
       </div>
 
+      {/* Middle section: Brand, slogan, copyright */}
       <div className="midFooter">
         <h1>Tech Twirl</h1>
         <p>Where Quality Meets Innovation.</p>
         <p>© 2025 . All Rights Reserved.</p>
+
+        {/* Social media links */}
         <h4>Follow Us</h4>
         <div className="social-icons">
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
@@ -37,9 +42,9 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Right section: Embedded Google Map */}
       <div className="rightFooter">
         <h4>Our Location</h4>
-        {/* Google Maps embed iframe */}
         <iframe 
           src={googleMapsEmbedUrl}
           width="100%" 

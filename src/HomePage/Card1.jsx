@@ -1,34 +1,36 @@
 import React from "react";
-import "../styles/Card1.css";
+import "../styles/Card1.css"; 
 
+// Functional component for displaying a card about software application development
 const Card1 = () => {
   return (
+   
     <div className="service-container">
+    
       <div className="service-image-container">
         <img 
-        src = "https://www.cyanous.com/img/ourtechnologies.gif"
-          // src="https://www.webdesigncompany.lk/images/services/creative-2-software-development-outsourcing-company-in-sri-lanka.gif" 
+          src="https://www.cyanous.com/img/ourtechnologies.gif" 
           alt="Top Software Application Development" 
           className="service-image" 
         />
       </div>
+
+      {/* Text content section on the right side */}
       <div className="service-content">
-        <h2>
-        Top Software Application Development</h2>
+        <h2>Top Software Application Development</h2>
+        
         <p className="service-text">
-        API Development, and IOS app development in one place, 
-        without loss of quality and the difficult path of selecting and 
-        changing contractors of SEO Company Pakistan. If your company needs a 
-        new website, a new online store design or an application, 
-        you have found the right company. At Exytex Technologies we are 
-        specialists in programming. We carry out developments of any size 
-        and adapted to your needs and budget. In addition, our experience 
-        in Digital marketing services is very great advantage for our clients,
- since all our projects are oriented to online success.
+          API development and iOS app development all in one place — 
+          without sacrificing quality or going through the hassle of switching SEO contractors. 
+          If your company needs a new website, an online store redesign, or a custom application, 
+          you’ve come to the right place. At Exytex Technologies, we are specialists in software programming. 
+          We develop solutions of all sizes, tailored to your needs and budget. Additionally, 
+          our deep experience in digital marketing services gives our clients a major advantage, 
+          as every project we deliver is designed for online success.
         </p>
       </div>
     </div>
   );
 };
 
-export default Card1;
+export default Card1; 

@@ -4,6 +4,7 @@ import axios from "axios";
 import "../styles/contactstyles.css";
 
 function Contact() {
+  // Form state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,10 +12,12 @@ function Contact() {
     message: "",
   });
 
+  // Validation and feedback states
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
+  // Handle input changes and clear related error
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -22,24 +25,27 @@ function Contact() {
       [name]: value,
     }));
 
+    // Clear individual error when input changes
     setErrors((prev) => ({
       ...prev,
       [name]: "",
     }));
   };
 
+  // Form submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formErrors = {};
 
+    // Client-side form validation
     if (!formData.name.trim()) formErrors.name = "Please enter your name";
     if (!formData.email.trim()) formErrors.email = "Please enter your email";
-    if (!formData.subject.trim())
-      formErrors.subject = "Please enter your subject";
+    if (!formData.subject.trim()) formErrors.subject = "Please enter your subject";
     if (!formData.message.trim()) formErrors.message = "Write your message";
 
     setErrors(formErrors);
 
+    // If no validation errors, proceed to submit
     if (Object.keys(formErrors).length === 0) {
       try {
         const response = await axios.post(
@@ -48,9 +54,11 @@ function Contact() {
         );
         console.log("Response:", response.data);
 
+        // Success feedback
         setPopupMessage("Your message has been sent successfully!");
         setSubmitted(true);
 
+        // Clear form after a delay
         setTimeout(() => {
           setPopupMessage("");
           setFormData({ name: "", email: "", subject: "", message: "" });
@@ -65,12 +73,12 @@ function Contact() {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero section */}
       <div className="hero-section">
         <h1>Contact Us</h1>
       </div>
 
-      {/* Contact Section */}
+      {/* Contact form section */}
       <section className="contact-section">
         <motion.h2
           initial={{ opacity: 0 }}
@@ -82,7 +90,7 @@ function Contact() {
         <p>If there's anything you would like to know, feel free to reach out!</p>
 
         <div className="contact-container">
-          {/* Form */}
+          {/* Contact form */}
           <motion.form
             className="contact-form"
             onSubmit={handleSubmit}
@@ -90,12 +98,10 @@ function Contact() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            {/* Popup Message inside the form */}
+            {/* Feedback message (success or error) */}
             {popupMessage && (
               <motion.div
-                className={`popup-message ${
-                  popupMessage.includes("Failed") ? "error" : ""
-                }`}
+                className={`popup-message ${popupMessage.includes("Failed") ? "error" : ""}`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -105,6 +111,7 @@ function Contact() {
               </motion.div>
             )}
 
+            {/* Name field */}
             <input
               type="text"
               name="name"
@@ -114,6 +121,7 @@ function Contact() {
             />
             {errors.name && <span className="error-message">{errors.name}</span>}
 
+            {/* Email field */}
             <input
               type="email"
               name="email"
@@ -121,10 +129,9 @@ function Contact() {
               value={formData.email}
               onChange={handleChange}
             />
-            {errors.email && (
-              <span className="error-message">{errors.email}</span>
-            )}
+            {errors.email && <span className="error-message">{errors.email}</span>}
 
+            {/* Subject field */}
             <input
               type="text"
               name="subject"
@@ -132,10 +139,9 @@ function Contact() {
               value={formData.subject}
               onChange={handleChange}
             />
-            {errors.subject && (
-              <span className="error-message">{errors.subject}</span>
-            )}
+            {errors.subject && <span className="error-message">{errors.subject}</span>}
 
+            {/* Message textarea */}
             <textarea
               name="message"
               rows="4"
@@ -143,16 +149,15 @@ function Contact() {
               value={formData.message}
               onChange={handleChange}
             />
-            {errors.message && (
-              <span className="error-message">{errors.message}</span>
-            )}
+            {errors.message && <span className="error-message">{errors.message}</span>}
 
+            {/* Submit button */}
             <button type="submit" disabled={submitted}>
               {submitted ? "Message Sent!" : "Send Message"}
             </button>
           </motion.form>
 
-          {/* Image */}
+          {/* Contact illustration */}
           <motion.div
             className="contact-image"
             initial={{ x: 50, opacity: 0 }}
@@ -167,7 +172,7 @@ function Contact() {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Embedded Google Map section */}
       <motion.div
         className="map-container"
         initial={{ opacity: 0, y: 50 }}
