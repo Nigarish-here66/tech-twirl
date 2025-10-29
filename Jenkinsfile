@@ -20,12 +20,13 @@ pipeline {
     stage('Push to Docker Hub') {
       steps {
         echo 'Pushing image to Docker Hub...'
-        withCredentials([string(credentialsId: 'jenkins-token', variable: 'DOCKER_TOKEN')]) {
-          sh 'echo $DOCKER_TOKEN | docker login -u 44815 --password-stdin'
-          sh 'docker push 44815/tech-twirl:latest'
+        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+          sh '''
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            docker push 44815/tech-twirl:latest
+          '''
         }
       }
     }
   }
 }
-
